@@ -11,6 +11,7 @@ import SwiftUI
 struct MovieCollectionView: UIViewRepresentable {
     
     var allItems: [HomeSection:[MovieBundle]]
+    var didSelectItem: ( (_ indexPath: IndexPath) -> () ) = {_ in} 
     var seeAllforSection: ( (_ section: HomeSection)->() ) = {_ in }
     
     func makeUIView(context: Context) -> UICollectionView {
@@ -80,6 +81,10 @@ struct MovieCollectionView: UIViewRepresentable {
                 }
             }
             return UICollectionViewCell()
+        }
+        
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            parent.didSelectItem(indexPath)
         }
         
         func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

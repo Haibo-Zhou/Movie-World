@@ -68,5 +68,9 @@ struct WebService {
                         .eraseToAnyPublisher()
     }
     
+    func getMovieDetailPublisher(for id: Int) -> AnyPublisher<Movie, Error> {
+        createPublisher(for: TMDBClient.Endpoints.movieDetail(id).url)
+    }
+    
 }
 

@@ -15,6 +15,7 @@ class MovieListViewModel: ObservableObject {
     private var cancellableSet: Set<AnyCancellable> = []
     
     @Published var sectionMoviesBundle = [HomeSection: [MovieBundle]]()
+    @Published var movie = MovieViewModel.default
     
     func getSectionMoviesBundle() {
         webService.getSectionsPublisher()
@@ -32,6 +33,22 @@ class MovieListViewModel: ObservableObject {
                 self.sectionMoviesBundle[.Popular] = popular.results.map(MovieViewModel.init)
                 self.sectionMoviesBundle[.Upcoming] = upComing.results.map(MovieViewModel.init)
                 self.sectionMoviesBundle[.TopActor] = topActor.results.map(ActorViewModel.init)
+        }.store(in: &self.cancellableSet)
+    }
+    
+    func getMovieDetail(id: Int) {
+        webService.getMovieDetailPublisher(for: id)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { status in
+                switch status {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+            }) { movie in
+                self.movie = MovieViewModel(movie: movie)
         }.store(in: &self.cancellableSet)
     }
 }

@@ -11,6 +11,8 @@ import SwiftUI
 struct MovieWorldAppView: View {
     
     @State private var section: HomeSection = .Popular
+    @State private var selectedIndexPath: IndexPath?
+    @State private var showSheet = false
     
     @ObservedObject var model = MovieListViewModel()
     
@@ -21,6 +23,13 @@ struct MovieWorldAppView: View {
                 Text("Loading...")
             } else {
                 createCollectionView()
+                    .sheet(isPresented: $showSheet) {
+                        if self.selectedIndexPath == nil {
+                            Text("MovieListView")
+                        } else {
+                            Text("SingleMovieView")
+                        }
+                }
             }
             
         }.onAppear() {
@@ -31,7 +40,18 @@ struct MovieWorldAppView: View {
     
     fileprivate func createCollectionView() -> some View {
         print("model.sectionMoviesBundle Count: \(model.sectionMoviesBundle)")
-        return MovieCollectionView(allItems: model.sectionMoviesBundle, seeAllforSection: {section in} )
+        return MovieCollectionView(allItems: model.sectionMoviesBundle,
+                                   didSelectItem: { indexPath in
+                                    self.selectedIndexPath = indexPath
+                                    self.section = HomeSection.allCases[indexPath.section]
+                                    self.showSheet.toggle()
+                                    
+        },
+                                   seeAllforSection: { section in
+                                    // self.section = section
+                                    self.showSheet.toggle()
+                                    // self.selectedIndexPath = nil
+        } )
                 .edgesIgnoringSafeArea(.all).navigationBarTitle("Movies")
     }
 }
