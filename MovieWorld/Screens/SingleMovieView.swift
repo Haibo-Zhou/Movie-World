@@ -20,6 +20,7 @@ struct SingleMovieView: View {
             VStack(alignment: .leading)  {
                 createPosterImage()
                 MovieDetailView(movie: self.model.movie)
+                createSecCollectionView()
             }
         }//.edgesIgnoringSafeArea(.top)
             .onAppear() {
@@ -30,5 +31,10 @@ struct SingleMovieView: View {
     
     fileprivate func createPosterImage() -> some View {
         return KFImage(source: .network(model.movie.posterUrl))
+            .resizable().aspectRatio(contentMode: .fit)
+    }
+    
+    fileprivate func createSecCollectionView() -> some View {
+        return 
     }
 }

@@ -48,7 +48,7 @@ struct MovieCollectionView: UIViewRepresentable {
         }
         
         func numberOfSections(in collectionView: UICollectionView) -> Int {
-            print("Section count: \(parent.allItems.count)")
+            // print("Section count: \(parent.allItems.count)")
             return parent.allItems.count
         }
         

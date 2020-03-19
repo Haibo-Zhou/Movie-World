@@ -72,5 +72,12 @@ struct WebService {
         createPublisher(for: TMDBClient.Endpoints.movieDetail(id).url)
     }
     
+    func getSecondSectionsPublisher(for id: Int) -> AnyPublisher<(Credits, TMDBImagesResult, TMDBMoviesResult), Error> {
+        Publishers.Zip3(createPublisher(for: TMDBClient.Endpoints.credits(id).url),
+                        createPublisher(for: TMDBClient.Endpoints.movieImages(id).url),
+                        createPublisher(for: TMDBClient.Endpoints.movieRecommendations(id).url))
+                        .eraseToAnyPublisher()
+    }
+    
 }
 

@@ -16,6 +16,10 @@ enum HomeSection: String, CaseIterable {
     case TopActor = "Hot Actors"
 }
 
+enum SecHomeSection: String, CaseIterable {
+    case <#case#>
+}
+
 struct MovieViewModel: Identifiable, MovieBundle {
     
      var id:Int
@@ -88,7 +92,7 @@ struct MovieViewModel: Identifiable, MovieBundle {
     }
     
     
-    static private func formatTime(from runtime: Int)->String{
+    static private func formatTime(from runtime: Int) -> String {
         if runtime == 0 {
             return "00h:00min"
         }

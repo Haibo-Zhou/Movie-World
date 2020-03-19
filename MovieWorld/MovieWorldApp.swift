@@ -27,7 +27,12 @@ struct MovieWorldAppView: View {
                         if self.selectedIndexPath == nil {
                             Text("MovieListView")
                         } else {
-                            Text("SingleMovieView")
+                            if self.section == .TopActor {
+                                Text("Single Actor View")
+                            } else {
+                                SingleMovieView(movieId: (self.model.sectionMoviesBundle[self.section] as! [MovieViewModel] ) [self.selectedIndexPath!.item].id )
+                            }
+                            
                         }
                 }
             }
@@ -39,7 +44,7 @@ struct MovieWorldAppView: View {
     }
     
     fileprivate func createCollectionView() -> some View {
-        print("model.sectionMoviesBundle Count: \(model.sectionMoviesBundle)")
+        // print("model.sectionMoviesBundle Count: \(model.sectionMoviesBundle)")
         return MovieCollectionView(allItems: model.sectionMoviesBundle,
                                    didSelectItem: { indexPath in
                                     self.selectedIndexPath = indexPath

@@ -24,6 +24,9 @@ struct TMDBClient {
         case upcomingMovies
         case popularActors
         case movieDetail(Int)
+        case credits(Int)
+        case movieImages(Int)
+        case movieRecommendations(Int)
         
         var stringValue: String {
             switch self {
@@ -36,7 +39,14 @@ struct TMDBClient {
             case .popularActors:
                 return TMDBClient.Endpoints.baseUrl + "/person/popular" + Endpoints.apiKeyParam + "&language=en-US&page=1"
             case .movieDetail(let movieId):
-                return TMDBClient.Endpoints.baseUrl + "\(movieId)" + Endpoints.apiKeyParam + "&language=en-US&page=1"
+                return TMDBClient.Endpoints.baseUrl + "/movie/\(movieId)" + Endpoints.apiKeyParam + "&language=en-US&page=1"
+            case .credits(let movieId):
+                return TMDBClient.Endpoints.baseUrl + "/movie/\(movieId)/credits" + Endpoints.apiKeyParam
+            case .movieImages(let movieId):
+                return TMDBClient.Endpoints.baseUrl + "/movie/\(movieId)/images" + Endpoints.apiKeyParam
+            case .movieRecommendations(let movieId):
+                return TMDBClient.Endpoints.baseUrl + "/movie/\(movieId)/recommendations" + Endpoints.apiKeyParam
+                
             }
         }
         
