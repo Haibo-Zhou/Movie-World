@@ -19,8 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-        
-        
         // get API key from plist file
         if let path = Bundle.main.path(forResource: "APIKeys", ofType: "plist"),
             let data = FileManager.default.contents(atPath: path),
@@ -29,22 +27,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             TMDBClient.apiKey = APIKeys.APIKey
             print("TMDB.apiKey: \(TMDBClient.apiKey)")
         }
-//
-
-//
-//        // Download Movie backDrop Image
-//        if let backdropPath = movie.backdropPath {
-//            TMDBClient.downloadPosterImage(backdropPath: backdropPath) { (data, error) in
-//                guard let data = data else {
-//                    return
-//                }
-//
-//                // print("Im there!")
-//                let image = UIImage(data: data)
-//                cell.imageView?.image = image
-//                cell.setNeedsLayout()
-//            }
-//        }
         
         // Create the SwiftUI view that provides the window contents.
         let contentView = MovieWorldAppView()

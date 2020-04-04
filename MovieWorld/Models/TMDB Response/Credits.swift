@@ -10,11 +10,11 @@ import Foundation
 
 struct Credits: Codable {
     let id: Int?
-    let cast: [CastPerson]
-    let crew: [CrewPerson]
+    let cast: [Cast]
+    let crew: [Crew]
 }
 
-struct CastPerson: Codable {
+struct Cast: Codable {
     let castId: Int?
     let character: String?
     let creditId: String?
@@ -24,12 +24,12 @@ struct CastPerson: Codable {
     let order: Int?
     let profilePath: String?
     
-    static var `default`: CastPerson {
-        CastPerson(castId: 0, character: "", creditId: "", gender: 0, id: 0, name: "", order: 0, profilePath: "")
+    static var `default`: Cast {
+        Cast(castId: 0, character: "", creditId: "", gender: 0, id: 0, name: "", order: 0, profilePath: "")
     }
 }
 
-struct CrewPerson: Codable {
+struct Crew: Codable {
     let creditId: String?
     let department: String?
     let gender: Int?
@@ -37,4 +37,8 @@ struct CrewPerson: Codable {
     let job: String?
     let name: String?
     let profilePath: String?
+    
+    static var `default`: Crew {
+        Crew(creditId: "", department: "", gender: 0, id: 0, job: "", name: "", profilePath: "")
+    }
 }

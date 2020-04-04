@@ -23,13 +23,6 @@ struct MovieDetailView: View {
                 Text(self.movie.runtime).foregroundColor(.gray)
             }.padding(.vertical)
             createDescription().padding(.vertical)
-            // Directors, Actors, Pictures
-            Image("Blake").resizable().frame(width: 80, height: 120, alignment: .leading)//.aspectRatio(contentMode: .fill)
-//            Image("bombshell_land").aspectRatio(contentMode: .fill)  .frame(width: 50, height: 80, alignment: .leading)
-//            Image("bombshell_land").aspectRatio(contentMode: .fill)  .frame(width: 50, height: 80, alignment: .leading)
-//            Image("bombshell_land").frame(width: 50, height: 80, alignment: .leading)
-//            Image("bombshell_land").frame(width: 50, height: 80, alignment: .leading)
-            
         }.padding(.horizontal).padding(.bottom, 20)
         
     }

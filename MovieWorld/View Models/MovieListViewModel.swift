@@ -13,9 +13,13 @@ import Combine
 class MovieListViewModel: ObservableObject {
     private var webService = WebService()
     private var cancellableSet: Set<AnyCancellable> = []
+    private var secCancellableSet: Set<AnyCancellable> = []
     
     @Published var sectionMoviesBundle = [HomeSection: [MovieBundle]]()
     @Published var movie = MovieViewModel.default
+    @Published var secSectionMoviesBundle = [SecHomeSection: [MixedMovieBundle]]()
+    @Published var cast = [CastViewModel]()
+    
     
     func getSectionMoviesBundle() {
         webService.getSectionsPublisher()
@@ -36,6 +40,25 @@ class MovieListViewModel: ObservableObject {
         }.store(in: &self.cancellableSet)
     }
     
+    func getSecSectionMoviesBundle(id: Int) {
+        webService.getSecondSectionsPublisher(for: id)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { status in
+                switch status {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print("Error AP: \(error)")
+                    break
+                }
+            }) { (movieCredits, movieImages, recMovies) in
+                self.secSectionMoviesBundle[.Director] = movieCredits.crew.map(CrewViewModel.init)
+                self.secSectionMoviesBundle[.Cast] = movieCredits.cast.map(CastViewModel.init)
+                self.secSectionMoviesBundle[.Images] = movieImages.backdrops.map(ImageViewModel.init)
+                self.secSectionMoviesBundle[.Recomm] = recMovies.results.map(MovieViewModel.init)
+        }.store(in: &self.cancellableSet)
+    }
+    
     func getMovieDetail(id: Int) {
         webService.getMovieDetailPublisher(for: id)
             .receive(on: DispatchQueue.main)
@@ -49,6 +72,22 @@ class MovieListViewModel: ObservableObject {
                 }
             }) { movie in
                 self.movie = MovieViewModel(movie: movie)
+        }.store(in: &self.cancellableSet)
+    }
+    
+    func getTestCast(id: Int) {
+        webService.getTestPublisher(for: id)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { status in
+                switch status {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+            }) { credits in
+                self.cast = credits.cast.map(CastViewModel.init)
         }.store(in: &self.cancellableSet)
     }
 }

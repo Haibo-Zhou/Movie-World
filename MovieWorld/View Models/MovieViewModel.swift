@@ -17,10 +17,13 @@ enum HomeSection: String, CaseIterable {
 }
 
 enum SecHomeSection: String, CaseIterable {
-    case <#case#>
+    case Director
+    case Cast
+    case Images
+    case Recomm = "You Might Also Like"
 }
 
-struct MovieViewModel: Identifiable, MovieBundle {
+struct MovieViewModel: Identifiable, MovieBundle, MixedMovieBundle {
     
      var id:Int
      var title:String
@@ -28,7 +31,7 @@ struct MovieViewModel: Identifiable, MovieBundle {
      var overview:String
      var popularity:CGFloat
      var genres:[String]
-     var voteAverage:Double = 0
+     var voteAverage: Double = 0
      var originalLanguage: String
      var posterUrl:URL
      var backdropUrl:URL

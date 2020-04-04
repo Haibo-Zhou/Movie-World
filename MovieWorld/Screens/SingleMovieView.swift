@@ -17,24 +17,29 @@ struct SingleMovieView: View {
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-            VStack(alignment: .leading)  {
+            VStack()  {
                 createPosterImage()
                 MovieDetailView(movie: self.model.movie)
+                
+                Text("ABC")
+            }
+            if model.secSectionMoviesBundle.isEmpty {
+                Text("Loading...")
+            } else {
                 createSecCollectionView()
             }
-        }//.edgesIgnoringSafeArea(.top)
-            .onAppear() {
+        }.onAppear() {
                 self.model.getMovieDetail(id: self.movieId)
+                self.model.getSecSectionMoviesBundle(id: self.movieId)
             }
-        
     }
     
     fileprivate func createPosterImage() -> some View {
         return KFImage(source: .network(model.movie.posterUrl))
-            .resizable().aspectRatio(contentMode: .fit)
+            .resizable().aspectRatio(contentMode: .fill)
     }
     
     fileprivate func createSecCollectionView() -> some View {
-        return 
+        return SecMovieCollectionView(allItems: model.secSectionMoviesBundle) 
     }
 }

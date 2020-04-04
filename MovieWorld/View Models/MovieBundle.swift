@@ -11,3 +11,8 @@ import Foundation
 protocol MovieBundle {
     
 }
+
+// Used for mixed type of director, actor, image, movie on 2nd MovieCollectionView
+protocol MixedMovieBundle {
+
+}

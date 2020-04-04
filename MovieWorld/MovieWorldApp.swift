@@ -55,7 +55,7 @@ struct MovieWorldAppView: View {
                                    seeAllforSection: { section in
                                     // self.section = section
                                     self.showSheet.toggle()
-                                    // self.selectedIndexPath = nil
+                                    self.selectedIndexPath = nil
         } )
                 .edgesIgnoringSafeArea(.all).navigationBarTitle("Movies")
     }

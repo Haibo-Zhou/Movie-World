@@ -48,7 +48,7 @@ struct MovieCollectionView: UIViewRepresentable {
         }
         
         func numberOfSections(in collectionView: UICollectionView) -> Int {
-            // print("Section count: \(parent.allItems.count)")
+            print("Section count: \(parent.allItems.count)")
             return parent.allItems.count
         }
         
@@ -61,7 +61,6 @@ struct MovieCollectionView: UIViewRepresentable {
             case 0:
                 if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NowPlayingCell.reuseId, for: indexPath) as? NowPlayingCell {
                     cell.movie = parent.allItems[.NowPlaying]?[indexPath.item] as? MovieViewModel
-                    // print("Cell Movie: \(cell.movie)")
                     return cell
                 }
             case 1:

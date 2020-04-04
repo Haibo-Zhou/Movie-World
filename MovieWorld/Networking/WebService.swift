@@ -27,12 +27,12 @@ struct WebService {
         let config = URLSessionConfiguration.default
         config.urlCache = URLCache.shared
         config.waitsForConnectivity = true
-        config.requestCachePolicy = .reloadIgnoringLocalCacheData
+        config.requestCachePolicy = .returnCacheDataElseLoad
         return URLSession(configuration: config, delegate: nil, delegateQueue: nil)
     }()
     
     private func createPublisher<T: Codable>(for url: URL) -> AnyPublisher<T, Error> {
-        print("Pblisher URL: \(url)")
+        //print("Pblisher URL: \(url)")
         return session.dataTaskPublisher(for: url)
             .tryMap { output in
                 guard let response = output.response as? HTTPURLResponse, response.statusCode == 200 else {
@@ -46,13 +46,6 @@ struct WebService {
                     }
                     throw HTTPError.statusCode
                 }
-                
-//                do {
-//                    let result = try self.decoder.decode(T.self, from: output.data)
-//                    // print("Result 1: \(result)")
-//                } catch {
-//                    print("ERROR: \(error)")
-//                }
                 return output.data
             }
             
@@ -77,6 +70,11 @@ struct WebService {
                         createPublisher(for: TMDBClient.Endpoints.movieImages(id).url),
                         createPublisher(for: TMDBClient.Endpoints.movieRecommendations(id).url))
                         .eraseToAnyPublisher()
+    }
+    
+    // for test purpose
+    func getTestPublisher(for id: Int) -> AnyPublisher<Credits, Error> {
+        createPublisher(for: TMDBClient.Endpoints.credits(id).url)
     }
     
 }

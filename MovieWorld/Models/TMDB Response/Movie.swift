@@ -34,7 +34,7 @@ struct Movie: Codable {
     let overview:String?
     let popularity:CGFloat?
     let genres: [Genre]?
-    let voteAverage:CGFloat?
+    let voteAverage: CGFloat?
     let originalLanguage: String?
     let posterPath:String?
     let backdropPath:String?
