@@ -28,6 +28,7 @@ struct SecMovieCollectionView: UIViewRepresentable {
         collectionView.delegate = context.coordinator
         collectionView.alwaysBounceVertical = true
         collectionView.showsVerticalScrollIndicator = false
+//        collectionView.isScrollEnabled = false
 
         return collectionView
     }
@@ -54,6 +55,7 @@ struct SecMovieCollectionView: UIViewRepresentable {
         }
 
         func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//            let aa = parent.allItems[.Director]
             return parent.allItems[SecHomeSection.allCases[section]]?.count ?? 0
         }
 

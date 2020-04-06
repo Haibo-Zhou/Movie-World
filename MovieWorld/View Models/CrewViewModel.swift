@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-struct CrewViewModel: Identifiable, MixedMovieBundle {
+struct CrewViewModel: Identifiable, MixedMovieBundle, Hashable {
     
     var profileUrl: URL
     var creditId: String

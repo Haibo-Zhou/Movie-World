@@ -25,7 +25,7 @@ struct MovieCollectionView: UIViewRepresentable {
         
         collectionView.dataSource = context.coordinator
         collectionView.delegate = context.coordinator
-        // collectionView.alwaysBounceVertical = true
+        collectionView.alwaysBounceVertical = true
         collectionView.showsVerticalScrollIndicator = false
         
         return collectionView

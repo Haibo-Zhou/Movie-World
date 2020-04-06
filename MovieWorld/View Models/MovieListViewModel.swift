@@ -18,7 +18,6 @@ class MovieListViewModel: ObservableObject {
     @Published var sectionMoviesBundle = [HomeSection: [MovieBundle]]()
     @Published var movie = MovieViewModel.default
     @Published var secSectionMoviesBundle = [SecHomeSection: [MixedMovieBundle]]()
-    @Published var cast = [CastViewModel]()
     
     
     func getSectionMoviesBundle() {
@@ -72,22 +71,6 @@ class MovieListViewModel: ObservableObject {
                 }
             }) { movie in
                 self.movie = MovieViewModel(movie: movie)
-        }.store(in: &self.cancellableSet)
-    }
-    
-    func getTestCast(id: Int) {
-        webService.getTestPublisher(for: id)
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { status in
-                switch status {
-                case .finished:
-                    break
-                case .failure(let error):
-                    print(error)
-                    break
-                }
-            }) { credits in
-                self.cast = credits.cast.map(CastViewModel.init)
         }.store(in: &self.cancellableSet)
     }
 }

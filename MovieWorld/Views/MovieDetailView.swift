@@ -13,7 +13,7 @@ struct MovieDetailView: View {
     var movie: MovieViewModel
     
     var body: some View {
-        return VStack(alignment: .leading) {
+        VStack(alignment: .leading) {
             createTitle()
             // LineRatingView(value: movie.voteAverage)
             createGenreList()
@@ -51,7 +51,9 @@ struct MovieDetailView: View {
     }
     
     fileprivate func createDescription() -> some View {
-        return Text(self.movie.overview).lineLimit(nil).font(.body)
+        return Text(self.movie.overview)
+            .lineLimit(nil)
+            .font(.body)
     }
 }
 
