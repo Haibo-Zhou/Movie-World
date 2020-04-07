@@ -10,42 +10,41 @@ import SwiftUI
 import KingfisherSwiftUI
 
 struct SingleMovieView: View {
-    
-    //let casts = ["Emma", "Chuck", "Dean", "Casdial", "Sam"]
-    
+
     var movieId: Int = -1
-    
+
     @ObservedObject var model = MovieListViewModel()
-    
+
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading)  {
                 createPosterImage()
                 MovieDetailView(movie: self.model.movie)
-                
-                if model.secSectionMoviesBundle.isEmpty {
-                    Text("Loading")
-                } else {
-                    VStack {
-                        CrewList(crews: model.secSectionMoviesBundle[.Director] as! [CrewViewModel])
-                        CastList(casts: model.secSectionMoviesBundle[.Cast] as! [CastViewModel])
-                    }
-                    
-                }
-            }.padding(.trailing)
-            
+
+//                if model.secSectionMoviesBundle.isEmpty {
+//                    Text("Loading")
+//                } else {
+//                    VStack {
+//                        CrewList(crews: model.secSectionMoviesBundle[.Director] as! [CrewViewModel])
+//                        CastList(casts: model.secSectionMoviesBundle[.Cast] as! [CastViewModel])
+//                    }
+//
+//                }
+            }
+//            .padding(.trailing)
+
         }.edgesIgnoringSafeArea(.top)
         .onAppear() {
                 self.model.getMovieDetail(id: self.movieId)
                 self.model.getSecSectionMoviesBundle(id: self.movieId)
             }
     }
-    
+
     struct CrewList: View {
         var crews: [CrewViewModel]
-        
+
         var body: some View {
-            
+
             VStack(alignment: .leading) {
                 Text("Crew")
                     .font(.headline)
@@ -61,7 +60,7 @@ struct SingleMovieView: View {
                                 Text("\(crew.name)")
                                 .lineLimit(nil)
                                     .foregroundColor(.gray)
-                                
+
                             }.frame(width: 100)
                         }
                     }
@@ -70,12 +69,12 @@ struct SingleMovieView: View {
             .padding(.horizontal).padding(.bottom)
         }
     }
-    
+
     struct CastList: View {
         var casts: [CastViewModel]
-        
+
         var body: some View {
-            
+
             VStack(alignment: .leading) {
                 Text("Cast")
                     .font(.headline)
@@ -91,7 +90,7 @@ struct SingleMovieView: View {
                                 Text("\(cast.name)")
                                 .lineLimit(nil)
                                     .foregroundColor(.gray)
-                                
+
                             }.frame(width: 100)
                         }
                     }
@@ -100,13 +99,15 @@ struct SingleMovieView: View {
             .padding(.horizontal).padding(.bottom)
         }
     }
-    
+
     fileprivate func createPosterImage() -> some View {
         return KFImage(source: .network(model.movie.posterUrl))
-            .resizable().aspectRatio(contentMode: .fill)
+            .resizable().aspectRatio(contentMode: .fit)
     }
-    
+
     fileprivate func createSecCollectionView() -> some View {
         return SecMovieCollectionView(allItems: model.secSectionMoviesBundle)
     }
 }
+
+
