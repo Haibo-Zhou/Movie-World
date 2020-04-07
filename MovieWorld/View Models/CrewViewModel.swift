@@ -43,11 +43,21 @@ struct CrewViewModel: Identifiable, MixedMovieBundle, Hashable {
 
 
     static private func posterImageUrl(with path: String, baseUrl: String, size: String) -> URL {
-        if let url = URL(string: "\(baseUrl)\(size)\(path)"){
-            return url
+        if path == "" {
+            print("path is empty")
+            // Place holder image
+            return URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Blank_portrait%2C_male_(rectangular).png/594px-Blank_portrait%2C_male_(rectangular).png")!
+        } else {
+            return URL(string: "\(baseUrl)\(size)\(path)")!
         }
-
-        return URL(string: "https://via.placeholder.com/150/0000FF/808080?Text=No&image&available")!
+        
+//        if let url = URL(string: "\(baseUrl)\(size)\(path)"){
+//            return url
+//        } else {
+//            print("NONONO")
+//        }
+//
+//        // Place holder image, will not reach here actually.
+//        return URL(string: "https://www.douban.com/photos/photo/2594611618/")!
     }
-
 }

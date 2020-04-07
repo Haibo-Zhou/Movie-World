@@ -21,18 +21,16 @@ struct SingleMovieView: View {
                 createPosterImage()
                 MovieDetailView(movie: self.model.movie)
 
-//                if model.secSectionMoviesBundle.isEmpty {
-//                    Text("Loading")
-//                } else {
-//                    VStack {
-//                        CrewList(crews: model.secSectionMoviesBundle[.Director] as! [CrewViewModel])
-//                        CastList(casts: model.secSectionMoviesBundle[.Cast] as! [CastViewModel])
-//                    }
-//
-//                }
-            }
-//            .padding(.trailing)
+                if model.secSectionMoviesBundle.isEmpty {
+                    Text("Loading")
+                } else {
+                    VStack {
+                        CrewList(crews: (model.secSectionMoviesBundle[.Crew] as! [CrewViewModel]).filter {$0.job == "Director"} )
+                        CastList(casts: model.secSectionMoviesBundle[.Cast] as! [CastViewModel])
+                    }
 
+                }
+            }
         }.edgesIgnoringSafeArea(.top)
         .onAppear() {
                 self.model.getMovieDetail(id: self.movieId)
@@ -46,7 +44,7 @@ struct SingleMovieView: View {
         var body: some View {
 
             VStack(alignment: .leading) {
-                Text("Crew")
+                Text("Director")
                     .font(.headline)
                 ScrollView(.horizontal) {
                     HStack(alignment: .top, spacing: 6) {
@@ -84,12 +82,13 @@ struct SingleMovieView: View {
                             VStack(alignment: .leading) {
                                 KFImage(source: .network(cast.profileUrl))
                                     .resizable()
-                                    .frame(maxWidth: 100, maxHeight: 150)
+                                    .frame(width: 100, height: 150)
                                     .aspectRatio(2/3, contentMode: .fit)
                                     .cornerRadius(5)
                                 Text("\(cast.name)")
-                                .lineLimit(nil)
-                                    .foregroundColor(.gray)
+                                .lineLimit(2)
+                                .foregroundColor(.gray)
+                                    .frame(height: 50, alignment: .top)
 
                             }.frame(width: 100)
                         }

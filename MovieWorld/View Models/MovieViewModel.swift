@@ -17,7 +17,7 @@ enum HomeSection: String, CaseIterable {
 }
 
 enum SecHomeSection: String, CaseIterable {
-    case Director
+    case Crew
     case Cast
     case Images
     case Recomm = "You Might Also Like"

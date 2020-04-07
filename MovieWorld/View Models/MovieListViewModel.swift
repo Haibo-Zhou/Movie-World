@@ -51,7 +51,7 @@ class MovieListViewModel: ObservableObject {
                     break
                 }
             }) { (movieCredits, movieImages, recMovies) in
-                self.secSectionMoviesBundle[.Director] = movieCredits.crew.map(CrewViewModel.init)
+                self.secSectionMoviesBundle[.Crew] = movieCredits.crew.map(CrewViewModel.init)
                 self.secSectionMoviesBundle[.Cast] = movieCredits.cast.map(CastViewModel.init)
                 self.secSectionMoviesBundle[.Images] = movieImages.backdrops.map(ImageViewModel.init)
                 self.secSectionMoviesBundle[.Recomm] = recMovies.results.map(MovieViewModel.init)

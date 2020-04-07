@@ -63,7 +63,7 @@ struct SecMovieCollectionView: UIViewRepresentable {
             switch indexPath.section {
             case 0:
                 if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CrewCell.reuseId, for: indexPath) as? CrewCell {
-                    cell.crew = parent.allItems[.Director]?[indexPath.item] as? CrewViewModel
+                    cell.crew = parent.allItems[.Crew]?[indexPath.item] as? CrewViewModel
                     return cell
                 }
             case 1:
