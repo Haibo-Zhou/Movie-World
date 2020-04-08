@@ -15,7 +15,7 @@ struct MovieDetailView: View {
     var body: some View {
         VStack(alignment: .leading) {
             createTitle()
-            // LineRatingView(value: movie.voteAverage)
+            RatingView(value: movie.voteAverage)
             createGenreList()
             HStack {
                 Text(self.movie.releaseDate).foregroundColor(.gray)
@@ -25,6 +25,21 @@ struct MovieDetailView: View {
             createDescription().padding(.vertical)
         }.padding(.horizontal).padding(.bottom, 20)
         
+    }
+    
+    struct RatingView: View {
+        var value: Double
+        
+        var body: some View {
+            HStack {
+                Image(systemName: "star.circle")
+                    .font(.system(.largeTitle))
+                    .foregroundColor(.pink)
+                Text(String(value))
+                    .font(.system(.largeTitle))
+                    .foregroundColor(.pink)
+            }
+        }
     }
     
     fileprivate func createTitle() -> some View {

@@ -23,7 +23,7 @@ enum SecHomeSection: String, CaseIterable {
     case Recomm = "You Might Also Like"
 }
 
-struct MovieViewModel: Identifiable, MovieBundle, MixedMovieBundle {
+struct MovieViewModel: Identifiable, MovieBundle, MixedMovieBundle, Hashable {
     
      var id:Int
      var title:String
@@ -63,7 +63,7 @@ struct MovieViewModel: Identifiable, MovieBundle, MixedMovieBundle {
         self.productionCompany = MovieViewModel.productionCompany(movie: movie)
         
         if let average = movie.voteAverage, average > 0 {
-            voteAverage = Double(average) / 2
+            voteAverage = Double(average)
         }
     }
     

@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-struct ImageViewModel: MixedMovieBundle { // Identifiable
+struct ImageViewModel: MixedMovieBundle, Hashable { // Identifiable
     
 
     var fileURL: URL
@@ -33,7 +33,7 @@ struct ImageViewModel: MixedMovieBundle { // Identifiable
 
     init(image: movieImage) {
         
-        self.fileURL = ImageViewModel.posterImageUrl(with: image.filePath ?? "", baseUrl: self.baseImageUrl, size: posterSize)
+        self.fileURL = ImageViewModel.backdropImageUrl(with: image.filePath ?? "", baseUrl: self.baseImageUrl, size: backdropSize)
         self.aspectRatio = image.aspectRatio ?? 0
         self.height = image.height ?? 0
         self.iso6391 = image.iso6391 ?? "N/A"
@@ -43,12 +43,22 @@ struct ImageViewModel: MixedMovieBundle { // Identifiable
     }
 
 
-    static private func posterImageUrl(with path: String, baseUrl: String, size: String) -> URL {
-        if let url = URL(string: "\(baseUrl)\(size)\(path)"){
-            return url
+//    static private func posterImageUrl(with path: String, baseUrl: String, size: String) -> URL {
+//        if let url = URL(string: "\(baseUrl)\(size)\(path)"){
+//            return url
+//        }
+//
+//        return URL(string: "https://via.placeholder.com/150/0000FF/808080?Text=No&image&available")!
+//    }
+    
+    static private func backdropImageUrl(with path: String, baseUrl: String, size: String) -> URL {
+        if path == "" {
+            print("path is empty")
+            // Place holder image
+            return URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Blank_portrait%2C_male_(rectangular).png/594px-Blank_portrait%2C_male_(rectangular).png")!
+        } else {
+            return URL(string: "\(baseUrl)\(size)\(path)")!
         }
-
-        return URL(string: "https://via.placeholder.com/150/0000FF/808080?Text=No&image&available")!
     }
 
 }
