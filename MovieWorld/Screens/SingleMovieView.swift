@@ -29,7 +29,7 @@ struct SingleMovieView: View {
                         CrewList(crews: (model.movieDetailBundle[.Crew] as! [CrewViewModel]).filter {$0.job == "Director"} )
                         CastList(casts: model.movieDetailBundle[.Cast] as! [CastViewModel])
                         ImageList(images: model.movieDetailBundle[.Images] as! [ImageViewModel])
-                        RecMovieList(movies: model.movieDetailBundle[.Recomm] as! [MovieViewModel])
+                        RecMovieList(movies: model.movieDetailBundle[.Recomm] as! [MovieViewModel], model: self.model)
                     }
                 }
             }
@@ -134,7 +134,7 @@ struct SingleMovieView: View {
     struct RecMovieList: View {
         
         var movies: [MovieViewModel]
-        @ObservedObject var model = MovieListViewModel()
+        var model: MovieListViewModel
 
         var body: some View {
             VStack(alignment: .leading) {
@@ -142,21 +142,20 @@ struct SingleMovieView: View {
                     .font(.headline)
                 ScrollView(.horizontal) {
                     HStack(alignment: .top, spacing: 10) {
-                        ForEach(0..<movies.count) { i in
+                        ForEach(movies) { movie in
                             VStack(alignment: .leading) {
-                                    KFImage(source: .network(self.movies[i].posterUrl))
+                                KFImage(source: .network(movie.posterUrl))
                                     .resizable()
                                     .frame(width: 100, height: 150)
                                     .aspectRatio(2/3, contentMode: .fill)
                                     .onTapGesture {
-                                        self.model.getMovieDetail(id: self.movies[i].id)
-                                        self.model.getMovieDetailBundle(id: self.movies[i].id)
+                                        self.model.getMovieDetail(id: movie.id)
+                                        self.model.getMovieDetailBundle(id: movie.id)
                                     }
-                                
-                                Text("\(self.movies[i].title)")
+                                Text("\(movie.title)")
                                 .lineLimit(2)
                                 .foregroundColor(.gray)
-                                    .frame(height: 50, alignment: .top)
+                                .frame(height: 50, alignment: .top)
 
                             }.frame(width: 100)
                         }
