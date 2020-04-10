@@ -24,8 +24,8 @@ struct SinglePersonView: View {
                     Text("Loading")
                 } else {
                     VStack(alignment: .leading, spacing: 12) {
-                        AttendedMovieList(movies: model.personInfoBundle[.CastedMovies] as! [PersonMovieViewModel])
-                        
+                        AttendedMovieList(movies: model.personInfoBundle[.CastedMovies] as! [PersonMovieViewModel], model: self.model)
+                        PersonImageList(images: model.personInfoBundle[.Images] as! [PersonImageViewModel], model: self.model)
                         
                     }
                     
@@ -67,24 +67,24 @@ struct PosterImage: View {
 
 struct AttendedMovieList: View {
     var movies: [PersonMovieViewModel]
-    @ObservedObject var model = MovieListViewModel()
+    var model: MovieListViewModel
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("KNOWN FOR")
+            Text("Known For")
                 .font(.headline)
             ScrollView(.horizontal) {
                 HStack(alignment: .top, spacing: 10) {
-                    ForEach(0..<movies.count) { i in
+                    ForEach(movies) { movie in
                         VStack(alignment: .leading) {
-                            KFImage(source: .network(self.movies[i].posterURL))
+                            KFImage(source: .network(movie.posterURL))
                                 .resizable()
                                 .frame(width: 100, height: 150)
                                 .aspectRatio(2/3, contentMode: .fill)
                                 .onTapGesture {
-                                    //self.model.getPersonDetail(id: )
+                                    // navigation to SingleMovieView
                                 }
-                            Text("\(self.movies[i].title)")
+                            Text("\(movie.title)")
                             .lineLimit(2)
                                 .foregroundColor(.gray)
                                 .frame(height: 50, alignment: .top)
@@ -96,22 +96,29 @@ struct AttendedMovieList: View {
     }
 }
 
-//struct PersonImages: View {
-//    var images: [PersonImageViewModel]
-//    
-//    var body: some View {
-//        VStack(alignment: .leading) {
-//            Text("Images")
-//                .font(.headline)
-//            ScrollView(.horizontal) {
-//                HStack(alignment: .top, spacing: 6) {
-//                    ForEach(images)
-//                }
-//            }
-//        }
-//    }
-//    
-//}
+struct PersonImageList: View {
+    var images: [PersonImageViewModel]
+    var model: MovieListViewModel
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Images")
+                .font(.headline)
+            ScrollView(.horizontal) {
+                HStack(alignment: .top, spacing: 6) {
+                    ForEach(images, id: \.self) { image in
+                        KFImage(source: .network(image.fileURL))
+                        .resizable()
+                        .frame(width: 100, height: 150)
+                        .aspectRatio(2/3, contentMode: .fit)
+                    }
+                }
+            }.frame(height: 150)
+        }
+        .padding(.horizontal).padding(.bottom)
+    }
+    
+}
 
 struct SinglePersonView_Previews: PreviewProvider {
     static var previews: some View {
