@@ -16,7 +16,7 @@ enum HomeSection: String, CaseIterable {
     case TopActor = "Hot Actors"
 }
 
-enum SecHomeSection: String, CaseIterable {
+enum MovieDetailSection: String, CaseIterable {
     case Crew
     case Cast
     case Images

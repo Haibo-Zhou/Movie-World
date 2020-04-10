@@ -22,6 +22,10 @@ struct Actor: Codable {
     let name: String?
     let popularity: CGFloat?
     let knownFor: [Production]?
+    // for person Detail
+    let biography: String?
+    let placeOfBirth: String?
+    let imdbId: String?
 }
 
 // MARK: Used for two objects with media type = (Movie or TV)

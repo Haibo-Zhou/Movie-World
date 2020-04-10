@@ -47,7 +47,7 @@ struct CastViewModel: Identifiable, MixedMovieBundle, Hashable {
     static private func posterImageUrl(with path: String, baseUrl: String, size: String) -> URL {
         
         if path == "" {
-            print("path is empty")
+            //print("path is empty")
             // Place holder image
             return URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Blank_portrait%2C_male_(rectangular).png/594px-Blank_portrait%2C_male_(rectangular).png")!
         } else {

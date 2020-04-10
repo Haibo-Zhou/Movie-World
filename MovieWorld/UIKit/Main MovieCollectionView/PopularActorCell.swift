@@ -21,7 +21,7 @@ class PopularActorCell: UICollectionViewCell {
 //        }
 //    }
     
-    var actor: ActorViewModel? {
+    var actor: PersonViewModel? {
         didSet{
             if let actor = self.actor {
                 // This line use kingFisher to download, set the image to the image view and caching it at the same time

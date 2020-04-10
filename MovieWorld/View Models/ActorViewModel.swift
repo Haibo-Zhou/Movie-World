@@ -9,40 +9,46 @@
 import SwiftUI
 
 
+struct PersonViewModel: Identifiable, MovieBundle {
+    var profileUrl: URL
+    var adult: Bool
+    var id: Int
+    let name: String
+    var popularity: CGFloat
+    var knownFor: String
+    var biography: String
+    var placeOfBirth: String
+    var imdbId: String
 
-struct ActorViewModel: Identifiable, MovieBundle {
-
-     var profileUrl: URL
-     var adult: Bool
-     var id: Int
-     let name: String
-     var popularity: CGFloat
-     var knownFor: String
-
-     private let baseImageUrl = "https://image.tmdb.org/t/p/"
-     private let backdropSize = "w780"
-     private let posterSize = "w342"
+    private let baseImageUrl = "https://image.tmdb.org/t/p/"
+    private let backdropSize = "w780"
+    private let posterSize = "w342"
     
 
-    static var `default` : ActorViewModel {
+    static var `default` : PersonViewModel {
         get {
-            ActorViewModel(actor: Actor(profilePath: "", adult: false, id: 0, name: "", popularity: 0, knownFor: []) )
+            PersonViewModel(actor: Actor(profilePath: "", adult: false, id: 0, name: "", popularity: 0, knownFor: [],
+                                         biography: "", placeOfBirth: "", imdbId: "") )
         }
     }
 
     init(actor: Actor) {
         
-        self.profileUrl = ActorViewModel.posterImageUrl(with: actor.profilePath ?? "", baseUrl: self.baseImageUrl, size: posterSize)
+        self.profileUrl = PersonViewModel.posterImageUrl(with: actor.profilePath ?? "", baseUrl: self.baseImageUrl, size: posterSize)
         self.adult = actor.adult
         self.id = actor.id!
         self.name = actor.name ?? "N/A"
         self.popularity = actor.popularity ?? 0
-        self.knownFor = ActorViewModel.knownFor(actor: actor)
+        self.knownFor = PersonViewModel.knownFor(actor: actor)
+        self.biography = actor.biography ?? ""
+        self.placeOfBirth = actor.placeOfBirth ?? ""
+        self.imdbId = actor.imdbId ?? ""
     }
 
 
     static private func posterImageUrl(with path: String, baseUrl: String, size: String) -> URL {
         if let url = URL(string: "\(baseUrl)\(size)\(path)"){
+            print("hihi \(url)")
             return url
         }
 

@@ -28,10 +28,14 @@ struct MovieWorldAppView: View {
                             Text("MovieListView")
                         } else {
                             if self.section == .TopActor {
-                                Text("Single Actor View")
+                                SinglePersonView(personId: (self.model.sectionMoviesBundle[self.section] as! [PersonViewModel])[self.selectedIndexPath!.item].id )
                             } else {
                                 SingleMovieView(movieId: (self.model.sectionMoviesBundle[self.section] as! [MovieViewModel] ) [self.selectedIndexPath!.item].id )
                             }
+                            
+//                            (self.model.sectionMoviesBundle[self.section] as! [PersonViewModel])[self.selectedIndexPath!.item].id
+//
+//                            (self.model.sectionMoviesBundle[self.section] as! [PersonViewModel])[self.selectedIndexPath!.item].id
                             
                         }
                 }

@@ -61,15 +61,27 @@ struct WebService {
                         .eraseToAnyPublisher()
     }
     
+    // MARK: Used for SingleMovieView
     func getMovieDetailPublisher(for id: Int) -> AnyPublisher<Movie, Error> {
         createPublisher(for: TMDBClient.Endpoints.movieDetail(id).url)
     }
     
-    func getSecondSectionsPublisher(for id: Int) -> AnyPublisher<(Credits, TMDBImagesResult, TMDBMoviesResult), Error> {
+    func getMovieInfomPublisher(for id: Int) -> AnyPublisher<(Credits, TMDBImagesResult, TMDBMoviesResult), Error> {
         Publishers.Zip3(createPublisher(for: TMDBClient.Endpoints.credits(id).url),
                         createPublisher(for: TMDBClient.Endpoints.movieImages(id).url),
                         createPublisher(for: TMDBClient.Endpoints.movieRecommendations(id).url))
                         .eraseToAnyPublisher()
+    }
+    
+    // MARK: Used for SinglePersonView
+    func getPersonDetailPublisher(for id: Int) -> AnyPublisher<Actor, Error> {
+        createPublisher(for: TMDBClient.Endpoints.personDetail(id).url)
+    }
+    
+    func getPersonInfomPublisher(for id: Int) -> AnyPublisher<(MovieCredits, PersonImages), Error> {
+        Publishers.Zip(createPublisher(for: TMDBClient.Endpoints.movieCredits(id).url),
+                       createPublisher(for: TMDBClient.Endpoints.personImages(id).url))
+                       .eraseToAnyPublisher()
     }
 }
 

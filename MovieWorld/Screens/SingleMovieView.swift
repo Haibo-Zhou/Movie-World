@@ -21,15 +21,14 @@ struct SingleMovieView: View {
                 createPosterImage()
                 MovieDetailView(movie: self.model.movie)
 
-                if model.secSectionMoviesBundle.isEmpty {
+                if model.movieDetailBundle.isEmpty {
                     Text("Loading")
                 } else {
                     VStack(alignment: .leading, spacing: 12) {
-                        CrewList(crews: (model.secSectionMoviesBundle[.Crew] as! [CrewViewModel]).filter {$0.job == "Director"} )
-                        CastList(casts: model.secSectionMoviesBundle[.Cast] as! [CastViewModel])
-                        ImageList(images: model.secSectionMoviesBundle[.Images] as! [ImageViewModel])
-//                        RecMovieList(movies: model.secSectionMoviesBundle[.Recomm] as! [MovieViewModel])
-                        RecMovieList(movies: model.secSectionMoviesBundle[.Recomm] as! [MovieViewModel], model: model)
+                        CrewList(crews: (model.movieDetailBundle[.Crew] as! [CrewViewModel]).filter {$0.job == "Director"} )
+                        CastList(casts: model.movieDetailBundle[.Cast] as! [CastViewModel])
+                        ImageList(images: model.movieDetailBundle[.Images] as! [ImageViewModel])
+                        RecMovieList(movies: model.movieDetailBundle[.Recomm] as! [MovieViewModel])
 
                     }
                 }
@@ -37,7 +36,7 @@ struct SingleMovieView: View {
         }.edgesIgnoringSafeArea(.top)
         .onAppear() {
                 self.model.getMovieDetail(id: self.movieId)
-                self.model.getSecSectionMoviesBundle(id: self.movieId)
+                self.model.getMovieDetailBundle(id: self.movieId)
         }
     }
 
@@ -135,28 +134,24 @@ struct SingleMovieView: View {
     struct RecMovieList: View {
         
         var movies: [MovieViewModel]
-        @ObservedObject var model: MovieListViewModel
+        @ObservedObject var model = MovieListViewModel()
 
         var body: some View {
             VStack(alignment: .leading) {
-                Text("\(SecHomeSection.Recomm.rawValue)")
+                Text("\(MovieDetailSection.Recomm.rawValue)")
                     .font(.headline)
                 ScrollView(.horizontal) {
                     HStack(alignment: .top, spacing: 10) {
                         ForEach(0..<movies.count) { i in
                             VStack(alignment: .leading) {
-                                Button(action: {
-                                    self.model.getMovieDetail(id: self.movies[i].id)
-                                    self.model.getSecSectionMoviesBundle(id: self.movies[i].id)
-                                }) {
                                     KFImage(source: .network(self.movies[i].posterUrl))
-                                    .renderingMode(.original)
                                     .resizable()
                                     .frame(width: 100, height: 150)
                                     .aspectRatio(2/3, contentMode: .fill)
-                                }
-                                    
-                                
+                                    .onTapGesture {
+                                        self.model.getMovieDetail(id: self.movies[i].id)
+                                        self.model.getMovieDetailBundle(id: self.movies[i].id)
+                                    }
                                 
                                 Text("\(self.movies[i].title)")
                                 .lineLimit(2)
@@ -167,20 +162,20 @@ struct SingleMovieView: View {
                         }
                     }
                 }
-                //.frame(height: 100)
             }
             .padding(.horizontal).padding(.bottom)
         }
     }
+    
 
     fileprivate func createPosterImage() -> some View {
         return KFImage(source: .network(model.movie.posterUrl))
             .resizable().aspectRatio(contentMode: .fit)
     }
 
-    fileprivate func createSecCollectionView() -> some View {
-        return SecMovieCollectionView(allItems: model.secSectionMoviesBundle)
-    }
+//    fileprivate func createSecCollectionView() -> some View {
+//        return SecMovieCollectionView(allItems: model.secSectionMoviesBundle)
+//    }
 }
 
 

@@ -13,11 +13,12 @@ import Combine
 class MovieListViewModel: ObservableObject {
     private var webService = WebService()
     private var cancellableSet: Set<AnyCancellable> = []
-    private var secCancellableSet: Set<AnyCancellable> = []
+    //private var secCancellableSet: Set<AnyCancellable> = []
     
     @Published var sectionMoviesBundle = [HomeSection: [MovieBundle]]()
     @Published var movie = MovieViewModel.default
-    @Published var secSectionMoviesBundle = [SecHomeSection: [MixedMovieBundle]]()
+    @Published var movieDetailBundle = [MovieDetailSection: [MixedMovieBundle]]()
+    @Published var person = PersonViewModel.default
     
     
     func getSectionMoviesBundle() {
@@ -35,12 +36,12 @@ class MovieListViewModel: ObservableObject {
                 self.sectionMoviesBundle[.NowPlaying] = nowPlaying.results.map(MovieViewModel.init)
                 self.sectionMoviesBundle[.Popular] = popular.results.map(MovieViewModel.init)
                 self.sectionMoviesBundle[.Upcoming] = upComing.results.map(MovieViewModel.init)
-                self.sectionMoviesBundle[.TopActor] = topActor.results.map(ActorViewModel.init)
+                self.sectionMoviesBundle[.TopActor] = topActor.results.map(PersonViewModel.init)
         }.store(in: &self.cancellableSet)
     }
     
-    func getSecSectionMoviesBundle(id: Int) {
-        webService.getSecondSectionsPublisher(for: id)
+    func getMovieDetailBundle(id: Int) {
+        webService.getMovieInfomPublisher(for: id)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { status in
                 switch status {
@@ -51,10 +52,10 @@ class MovieListViewModel: ObservableObject {
                     break
                 }
             }) { (movieCredits, movieImages, recMovies) in
-                self.secSectionMoviesBundle[.Crew] = movieCredits.crew.map(CrewViewModel.init)
-                self.secSectionMoviesBundle[.Cast] = movieCredits.cast.map(CastViewModel.init)
-                self.secSectionMoviesBundle[.Images] = movieImages.backdrops.map(ImageViewModel.init)
-                self.secSectionMoviesBundle[.Recomm] = recMovies.results.map(MovieViewModel.init)
+                self.movieDetailBundle[.Crew] = movieCredits.crew.map(CrewViewModel.init)
+                self.movieDetailBundle[.Cast] = movieCredits.cast.map(CastViewModel.init)
+                self.movieDetailBundle[.Images] = movieImages.backdrops.map(ImageViewModel.init)
+                self.movieDetailBundle[.Recomm] = recMovies.results.map(MovieViewModel.init)
         }.store(in: &self.cancellableSet)
     }
     
@@ -71,6 +72,22 @@ class MovieListViewModel: ObservableObject {
                 }
             }) { movie in
                 self.movie = MovieViewModel(movie: movie)
+        }.store(in: &self.cancellableSet)
+    }
+    
+    func getPersonDetail(id: Int) {
+        webService.getPersonDetailPublisher(for: id)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { status in
+                switch status {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+            }) { person in
+                self.person = PersonViewModel(actor: person)
         }.store(in: &self.cancellableSet)
     }
 }

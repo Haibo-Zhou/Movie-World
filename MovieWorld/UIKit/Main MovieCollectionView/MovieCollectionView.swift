@@ -75,7 +75,7 @@ struct MovieCollectionView: UIViewRepresentable {
                 }
             default:
                 if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularActorCell.reuseId, for: indexPath) as? PopularActorCell {
-                    cell.actor = parent.allItems[.TopActor]?[indexPath.item] as? ActorViewModel
+                    cell.actor = parent.allItems[.TopActor]?[indexPath.item] as? PersonViewModel
                     return cell
                 }
             }
