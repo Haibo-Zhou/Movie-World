@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-struct CastViewModel: Identifiable, MixedMovieBundle, Hashable {
+struct CastViewModel: Identifiable, DummyBundle, Hashable {
 
     var profileUrl: URL
     var id: Int

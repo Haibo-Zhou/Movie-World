@@ -8,11 +8,18 @@
 
 import Foundation
 
-protocol MovieBundle {
+protocol DummyBundle {
     
 }
 
-// Used for mixed type of director, actor, image, movie on 2nd MovieCollectionView
-protocol MixedMovieBundle {
+//// used for mixed type of director, actor, image, movie on SingleMovieView
+//protocol MixedMovieBundle {
+//
+//}
+//
+//// used for attended movies & person images on SinglePersonView
+//protocol PersonInfoBundle {
+//
+//}
 
-}
+

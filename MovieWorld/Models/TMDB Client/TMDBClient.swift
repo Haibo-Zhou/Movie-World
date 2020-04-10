@@ -52,7 +52,7 @@ struct TMDBClient {
             case .personDetail(let personId):
                 return TMDBClient.Endpoints.baseUrl + "/person/\(personId)" + Endpoints.apiKeyParam
             case .movieCredits(let personId):
-                return TMDBClient.Endpoints.baseUrl + "/person/\(personId)/movieCredits" + Endpoints.apiKeyParam
+                return TMDBClient.Endpoints.baseUrl + "/person/\(personId)/movie_credits" + Endpoints.apiKeyParam
             case .personImages(let personId):
                 return TMDBClient.Endpoints.baseUrl + "/person/\(personId)/images" + Endpoints.apiKeyParam
                 

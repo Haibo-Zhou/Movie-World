@@ -23,7 +23,13 @@ enum MovieDetailSection: String, CaseIterable {
     case Recomm = "You Might Also Like"
 }
 
-struct MovieViewModel: Identifiable, MovieBundle, MixedMovieBundle, Hashable {
+enum PersonInfoSection: String, CaseIterable {
+    case DirectedMovies
+    case CastedMovies
+    case Images
+}
+
+struct MovieViewModel: Identifiable, DummyBundle, Hashable {
     
      var id:Int
      var title:String

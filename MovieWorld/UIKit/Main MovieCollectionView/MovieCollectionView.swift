@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MovieCollectionView: UIViewRepresentable {
     
-    var allItems: [HomeSection:[MovieBundle]]
+    var allItems: [HomeSection: [DummyBundle]]
     var didSelectItem: ( (_ indexPath: IndexPath) -> () ) = {_ in} 
     var seeAllforSection: ( (_ section: HomeSection)->() ) = {_ in }
     

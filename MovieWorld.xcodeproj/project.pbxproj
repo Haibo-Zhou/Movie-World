@@ -101,6 +101,8 @@
 		13A33806243F49CB001F7D99 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A33805243F49CB001F7D99 /* PersonDetailView.swift */; };
 		13A3380824402ACB001F7D99 /* MovieCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A3380724402ACB001F7D99 /* MovieCredits.swift */; };
 		13A3380A24402DA2001F7D99 /* PersonImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A3380924402DA2001F7D99 /* PersonImages.swift */; };
+		13A3380C24406388001F7D99 /* PersonMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A3380B24406386001F7D99 /* PersonMovieViewModel.swift */; };
+		13A3380E24406A84001F7D99 /* PersonImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A3380D24406A84001F7D99 /* PersonImageViewModel.swift */; };
 		13BAFBF323F5369300AAD320 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BAFBF223F5369300AAD320 /* AppDelegate.swift */; };
 		13BAFBF523F5369300AAD320 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BAFBF423F5369300AAD320 /* SceneDelegate.swift */; };
 		13BAFBF723F5369300AAD320 /* MovieWorldApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13BAFBF623F5369300AAD320 /* MovieWorldApp.swift */; };
@@ -203,6 +205,8 @@
 		13A33805243F49CB001F7D99 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
 		13A3380724402ACB001F7D99 /* MovieCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCredits.swift; sourceTree = "<group>"; };
 		13A3380924402DA2001F7D99 /* PersonImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonImages.swift; sourceTree = "<group>"; };
+		13A3380B24406386001F7D99 /* PersonMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonMovieViewModel.swift; sourceTree = "<group>"; };
+		13A3380D24406A84001F7D99 /* PersonImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonImageViewModel.swift; sourceTree = "<group>"; };
 		13BAFBEF23F5369300AAD320 /* MovieWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13BAFBF223F5369300AAD320 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13BAFBF423F5369300AAD320 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -237,6 +241,8 @@
 				13698763242359C0008A7E49 /* CrewViewModel.swift */,
 				1369876724235F85008A7E49 /* CastViewModel.swift */,
 				13698765242359CD008A7E49 /* ImageViewModel.swift */,
+				13A3380D24406A84001F7D99 /* PersonImageViewModel.swift */,
+				13A3380B24406386001F7D99 /* PersonMovieViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -603,6 +609,7 @@
 				138655A724151358009DC6C7 /* WebService.swift in Sources */,
 				133BCF8A24174A5A006F5C6D /* MovieListViewModel.swift in Sources */,
 				13A3380824402ACB001F7D99 /* MovieCredits.swift in Sources */,
+				13A3380C24406388001F7D99 /* PersonMovieViewModel.swift in Sources */,
 				138655AA2415F992009DC6C7 /* NowPlayingCell.swift in Sources */,
 				13A3380A24402DA2001F7D99 /* PersonImages.swift in Sources */,
 				1386559F2414BBF0009DC6C7 /* APIKeys.swift in Sources */,
@@ -630,6 +637,7 @@
 				13698756242211E0008A7E49 /* ColorExt.swift in Sources */,
 				1369875C24232218008A7E49 /* Image.swift in Sources */,
 				1386562924162AED009DC6C7 /* MovieViewModel.swift in Sources */,
+				13A3380E24406A84001F7D99 /* PersonImageViewModel.swift in Sources */,
 				1369876824235F85008A7E49 /* CastViewModel.swift in Sources */,
 				13BAFBF723F5369300AAD320 /* MovieWorldApp.swift in Sources */,
 				133BCF8424165A81006F5C6D /* PopularActorCell.swift in Sources */,

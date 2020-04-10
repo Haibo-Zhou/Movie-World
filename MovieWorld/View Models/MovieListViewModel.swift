@@ -15,10 +15,11 @@ class MovieListViewModel: ObservableObject {
     private var cancellableSet: Set<AnyCancellable> = []
     //private var secCancellableSet: Set<AnyCancellable> = []
     
-    @Published var sectionMoviesBundle = [HomeSection: [MovieBundle]]()
+    @Published var sectionMoviesBundle = [HomeSection: [DummyBundle]]()
     @Published var movie = MovieViewModel.default
-    @Published var movieDetailBundle = [MovieDetailSection: [MixedMovieBundle]]()
+    @Published var movieDetailBundle = [MovieDetailSection: [DummyBundle]]()
     @Published var person = PersonViewModel.default
+    @Published var personInfoBundle = [PersonInfoSection: [DummyBundle]]()
     
     
     func getSectionMoviesBundle() {
@@ -51,9 +52,9 @@ class MovieListViewModel: ObservableObject {
                     print("Error AP: \(error)")
                     break
                 }
-            }) { (movieCredits, movieImages, recMovies) in
-                self.movieDetailBundle[.Crew] = movieCredits.crew.map(CrewViewModel.init)
-                self.movieDetailBundle[.Cast] = movieCredits.cast.map(CastViewModel.init)
+            }) { (credits, movieImages, recMovies) in
+                self.movieDetailBundle[.Crew] = credits.crew.map(CrewViewModel.init)
+                self.movieDetailBundle[.Cast] = credits.cast.map(CastViewModel.init)
                 self.movieDetailBundle[.Images] = movieImages.backdrops.map(ImageViewModel.init)
                 self.movieDetailBundle[.Recomm] = recMovies.results.map(MovieViewModel.init)
         }.store(in: &self.cancellableSet)
@@ -88,6 +89,24 @@ class MovieListViewModel: ObservableObject {
                 }
             }) { person in
                 self.person = PersonViewModel(actor: person)
+        }.store(in: &self.cancellableSet)
+    }
+    
+    func getPersonDetailBundle(id: Int) {
+        webService.getPersonInfoPublisher(for: id)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { status in
+                switch status {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+            }) { movieCredits, images in
+                self.personInfoBundle[.DirectedMovies] = movieCredits.crew.map(PersonMovieViewModel.init)
+                self.personInfoBundle[.CastedMovies] = movieCredits.cast.map(PersonMovieViewModel.init)
+                self.personInfoBundle[.Images] = images.profiles.map(PersonImageViewModel.init)
         }.store(in: &self.cancellableSet)
     }
 }

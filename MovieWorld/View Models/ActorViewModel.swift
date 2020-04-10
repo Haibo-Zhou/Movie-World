@@ -9,7 +9,7 @@
 import SwiftUI
 
 
-struct PersonViewModel: Identifiable, MovieBundle {
+struct PersonViewModel: Identifiable, DummyBundle {
     var profileUrl: URL
     var adult: Bool
     var id: Int
@@ -48,7 +48,6 @@ struct PersonViewModel: Identifiable, MovieBundle {
 
     static private func posterImageUrl(with path: String, baseUrl: String, size: String) -> URL {
         if let url = URL(string: "\(baseUrl)\(size)\(path)"){
-            print("hihi \(url)")
             return url
         }
 

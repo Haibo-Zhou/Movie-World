@@ -12,5 +12,4 @@ struct Response: Codable {
     let statusMessage: String?
     let success: Bool
     let statusCode: Int?
-    
 }

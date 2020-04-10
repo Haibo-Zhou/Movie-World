@@ -23,13 +23,13 @@ struct SingleMovieView: View {
 
                 if model.movieDetailBundle.isEmpty {
                     Text("Loading")
-                } else {
+                }
+                else {
                     VStack(alignment: .leading, spacing: 12) {
                         CrewList(crews: (model.movieDetailBundle[.Crew] as! [CrewViewModel]).filter {$0.job == "Director"} )
                         CastList(casts: model.movieDetailBundle[.Cast] as! [CastViewModel])
                         ImageList(images: model.movieDetailBundle[.Images] as! [ImageViewModel])
                         RecMovieList(movies: model.movieDetailBundle[.Recomm] as! [MovieViewModel])
-
                     }
                 }
             }

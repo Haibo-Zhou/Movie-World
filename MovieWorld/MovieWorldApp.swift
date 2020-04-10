@@ -32,13 +32,8 @@ struct MovieWorldAppView: View {
                             } else {
                                 SingleMovieView(movieId: (self.model.sectionMoviesBundle[self.section] as! [MovieViewModel] ) [self.selectedIndexPath!.item].id )
                             }
-                            
-//                            (self.model.sectionMoviesBundle[self.section] as! [PersonViewModel])[self.selectedIndexPath!.item].id
-//
-//                            (self.model.sectionMoviesBundle[self.section] as! [PersonViewModel])[self.selectedIndexPath!.item].id
-                            
                         }
-                }
+                    }
             }
             
         }.onAppear() {

@@ -1,16 +1,15 @@
 //
-//  ImageViewModel.swift
+//  PersonImageViewModel.swift
 //  MovieWorld
 //
-//  Created by Chuck.Zhou on 3/19/20.
+//  Created by Chuck.Zhou on 4/10/20.
 //  Copyright © 2020 Haibo Family. All rights reserved.
 //
 
 import SwiftUI
 
 
-struct ImageViewModel: DummyBundle, Hashable { // Identifiable
-    
+struct PersonImageViewModel: DummyBundle, Hashable {
 
     var fileURL: URL
     var aspectRatio: Float
@@ -25,15 +24,15 @@ struct ImageViewModel: DummyBundle, Hashable { // Identifiable
     private let posterSize = "w342"
     
 
-    static var `default` : ImageViewModel {
+    static var `default` : PersonImageViewModel {
         get {
-            ImageViewModel(image: movieImage(aspectRatio: 0, filePath: "", height: 0, iso6391: "", voteAverage: 0, voteCount: 0, width: 0) )
+            PersonImageViewModel(image: Profile(aspectRatio: 0, filePath: "", height: 0, iso6391: "", voteAverage: 0, voteCount: 0, width: 0) )
         }
     }
 
-    init(image: movieImage) {
+    init(image: Profile) {
         
-        self.fileURL = ImageViewModel.backdropImageUrl(with: image.filePath ?? "", baseUrl: self.baseImageUrl, size: backdropSize)
+        self.fileURL = PersonImageViewModel.posterImageUrl(with: image.filePath ?? "", baseUrl: self.baseImageUrl, size: backdropSize)
         self.aspectRatio = image.aspectRatio ?? 0
         self.height = image.height ?? 0
         self.iso6391 = image.iso6391 ?? "N/A"
@@ -43,22 +42,14 @@ struct ImageViewModel: DummyBundle, Hashable { // Identifiable
     }
 
 
-//    static private func posterImageUrl(with path: String, baseUrl: String, size: String) -> URL {
-//        if let url = URL(string: "\(baseUrl)\(size)\(path)"){
-//            return url
-//        }
-//
-//        return URL(string: "https://via.placeholder.com/150/0000FF/808080?Text=No&image&available")!
-//    }
-    
-    static private func backdropImageUrl(with path: String, baseUrl: String, size: String) -> URL {
+    static private func posterImageUrl(with path: String, baseUrl: String, size: String) -> URL {
         if path == "" {
-            //print("path is empty")
             // Place holder image
             return URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Blank_portrait%2C_male_(rectangular).png/594px-Blank_portrait%2C_male_(rectangular).png")!
         } else {
             return URL(string: "\(baseUrl)\(size)\(path)")!
         }
     }
+    
 
 }
