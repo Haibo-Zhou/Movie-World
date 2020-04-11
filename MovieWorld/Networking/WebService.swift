@@ -32,7 +32,7 @@ struct WebService {
     }()
     
     private func createPublisher<T: Codable>(for url: URL) -> AnyPublisher<T, Error> {
-        print("Pblisher URL: \(url)")
+        print("Publisher URL: \(url)")
         return session.dataTaskPublisher(for: url)
             .tryMap { output in
                 guard let response = output.response as? HTTPURLResponse, response.statusCode == 200 else {

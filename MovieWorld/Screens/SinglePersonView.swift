@@ -13,6 +13,8 @@ struct SinglePersonView: View {
     
     var personId: Int = -1
     @ObservedObject var model = MovieListViewModel()
+//    @State private var showSheet = false
+//    @State private var selectedIndex: Int
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -24,13 +26,13 @@ struct SinglePersonView: View {
                     Text("Loading")
                 } else {
                     VStack(alignment: .leading, spacing: 12) {
-                        AttendedMovieList(movies: model.personInfoBundle[.CastedMovies] as! [PersonMovieViewModel], model: self.model)
-                        PersonImageList(images: model.personInfoBundle[.Images] as! [PersonImageViewModel], model: self.model)
-                        
+                        AttendedMovieList(movies: model.personInfoBundle[.CastedMovies] as! [PersonMovieViewModel])
+//                            .sheet(isPresented: $showSheet) {
+//                                SingleMovieView(movieId: self.model.movie)
+//                            }
+                        PersonImageList(images: model.personInfoBundle[.Images] as! [PersonImageViewModel])
                     }
-                    
                 }
-                
             }
         }.edgesIgnoringSafeArea(.top)
         .onAppear() {
@@ -40,7 +42,7 @@ struct SinglePersonView: View {
     }
 }
 
-struct PersonDetailView: View {
+private struct PersonDetailView: View {
     var person: PersonViewModel
     
     var body: some View {
@@ -55,7 +57,7 @@ struct PersonDetailView: View {
     
 }
 
-struct PosterImage: View {
+private struct PosterImage: View {
     var person: PersonViewModel
     
     var body: some View {
@@ -65,9 +67,10 @@ struct PosterImage: View {
     }
 }
 
-struct AttendedMovieList: View {
+private struct AttendedMovieList: View {
     var movies: [PersonMovieViewModel]
-    var model: MovieListViewModel
+    @State private var showSheet = false
+    @State private var selectedID = -1
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -82,7 +85,8 @@ struct AttendedMovieList: View {
                                 .frame(width: 100, height: 150)
                                 .aspectRatio(2/3, contentMode: .fill)
                                 .onTapGesture {
-                                    // navigation to SingleMovieView
+                                    self.selectedID = movie.id
+                                    self.showSheet.toggle()
                                 }
                             Text("\(movie.title)")
                             .lineLimit(2)
@@ -91,14 +95,16 @@ struct AttendedMovieList: View {
                         }.frame(width: 100)
                     }
                 }
+                
+            }.sheet(isPresented: self.$showSheet) {
+                SingleMovieView(movieId: self.selectedID)
             }
         }.padding(.horizontal).padding(.bottom)
     }
 }
 
-struct PersonImageList: View {
+private struct PersonImageList: View {
     var images: [PersonImageViewModel]
-    var model: MovieListViewModel
     
     var body: some View {
         VStack(alignment: .leading) {
