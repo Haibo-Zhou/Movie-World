@@ -125,8 +125,10 @@ struct CastList: View {
     }
 }
 
-struct ImageList: View {
+private struct ImageList: View {
     var images: [ImageViewModel]
+    @State private var showSheet = false
+    @State private var selectedImage = ImageViewModel.default
 
     var body: some View {
 
@@ -140,10 +142,13 @@ struct ImageList: View {
                             .resizable()
                             .frame(width: 200)
                             .aspectRatio(1.77, contentMode: .fit)
-//                            .onTapGesture {
-//                                PresentedImageView(image: image)
-//                        }
+                            .onTapGesture {
+                                self.selectedImage = image
+                                self.showSheet.toggle()
+                        }
                     }
+                }.sheet(isPresented: $showSheet) {
+                    PresentedImageView(image: self.selectedImage)
                 }
             }.frame(height: 120)
         }
