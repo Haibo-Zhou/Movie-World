@@ -105,6 +105,8 @@ private struct AttendedMovieList: View {
 
 private struct PersonImageList: View {
     var images: [PersonImageViewModel]
+    @State private var showSheet = false
+    @State private var selectedImage = PersonImageViewModel.default
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -117,13 +119,29 @@ private struct PersonImageList: View {
                         .resizable()
                         .frame(width: 100, height: 150)
                         .aspectRatio(2/3, contentMode: .fit)
+                            .onTapGesture {
+                                self.selectedImage = image
+                                self.showSheet.toggle()
+                        }
                     }
+                }
+                .sheet(isPresented: $showSheet) {
+                    PresentedImageView(image: self.selectedImage)
                 }
             }.frame(height: 150)
         }
         .padding(.horizontal).padding(.bottom)
     }
+}
+
+private struct PresentedImageView: View {
+    var image: PersonImageViewModel
     
+    var body: some View {
+        KFImage(source: .network(image.fileURL))
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+    }
 }
 
 struct SinglePersonView_Previews: PreviewProvider {

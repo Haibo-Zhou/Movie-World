@@ -156,7 +156,7 @@ private struct ImageList: View {
     }
 }
 
-struct PresentedImageView: View {
+private struct PresentedImageView: View {
     var image: ImageViewModel
     
     var body: some View {
