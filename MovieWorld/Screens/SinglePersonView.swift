@@ -12,9 +12,8 @@ import KingfisherSwiftUI
 struct SinglePersonView: View {
     
     var personId: Int = -1
+    var isDirector = false
     @ObservedObject var model = MovieListViewModel()
-//    @State private var showSheet = false
-//    @State private var selectedIndex: Int
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -26,10 +25,11 @@ struct SinglePersonView: View {
                     Text("Loading")
                 } else {
                     VStack(alignment: .leading, spacing: 12) {
-                        AttendedMovieList(movies: model.personInfoBundle[.CastedMovies] as! [PersonMovieViewModel])
-//                            .sheet(isPresented: $showSheet) {
-//                                SingleMovieView(movieId: self.model.movie)
-//                            }
+                        if isDirector {
+                            AttendedMovieList(movies: model.personInfoBundle[.DirectedMovies] as! [PersonMovieViewModel])
+                        } else {
+                            AttendedMovieList(movies: model.personInfoBundle[.CastedMovies] as! [PersonMovieViewModel])
+                        }
                         PersonImageList(images: model.personInfoBundle[.Images] as! [PersonImageViewModel])
                     }
                 }
