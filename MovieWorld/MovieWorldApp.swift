@@ -25,7 +25,11 @@ struct MovieWorldAppView: View {
                 createCollectionView()
                     .sheet(isPresented: $showSheet) {
                         if self.selectedIndexPath == nil {
-                            Text("MovieListView")
+                            if self.section == .TopActor {
+                                Text("ActorListView")
+                            } else {
+                                MovieListView(section: self.section)
+                            }
                         } else {
                             if self.section == .TopActor {
                                 SinglePersonView(personId: (self.model.sectionMoviesBundle[self.section] as! [PersonViewModel])[self.selectedIndexPath!.item].id )
@@ -52,7 +56,7 @@ struct MovieWorldAppView: View {
                                     
         },
                                    seeAllforSection: { section in
-                                    // self.section = section
+                                    self.section = section
                                     self.showSheet.toggle()
                                     self.selectedIndexPath = nil
         } )

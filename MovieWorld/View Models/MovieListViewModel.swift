@@ -13,13 +13,13 @@ import Combine
 class MovieListViewModel: ObservableObject {
     private var webService = WebService()
     private var cancellableSet: Set<AnyCancellable> = []
-    //private var secCancellableSet: Set<AnyCancellable> = []
     
     @Published var sectionMoviesBundle = [HomeSection: [DummyBundle]]()
     @Published var movie = MovieViewModel.default
     @Published var movieDetailBundle = [MovieDetailSection: [DummyBundle]]()
     @Published var person = PersonViewModel.default
     @Published var personInfoBundle = [PersonInfoSection: [DummyBundle]]()
+    @Published var paginatedMovies = [MovieViewModel]()
     
     
     func getSectionMoviesBundle() {
@@ -107,6 +107,22 @@ class MovieListViewModel: ObservableObject {
                 self.personInfoBundle[.DirectedMovies] = movieCredits.crew.map(PersonMovieViewModel.init)
                 self.personInfoBundle[.CastedMovies] = movieCredits.cast.map(PersonMovieViewModel.init)
                 self.personInfoBundle[.Images] = images.profiles.map(PersonImageViewModel.init)
+        }.store(in: &self.cancellableSet)
+    }
+    
+    func getPaginatedMovies(for section: HomeSection, page: Int) {
+        webService.getPaginatedPublisher(for: section, page: page)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { status in
+                switch status {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+            }) { movies in
+                self.paginatedMovies.append(contentsOf: movies.results.map(MovieViewModel.init))
         }.store(in: &self.cancellableSet)
     }
 }

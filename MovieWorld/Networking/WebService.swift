@@ -83,5 +83,9 @@ struct WebService {
                        createPublisher(for: TMDBClient.Endpoints.personImages(id).url))
                        .eraseToAnyPublisher()
     }
+    
+    func getPaginatedPublisher(for section: HomeSection, page: Int) -> AnyPublisher<TMDBMoviesResult, Error> {
+        createPublisher(for: TMDBClient.Endpoints.paginatedMovies(section, page).url)
+    }
 }
 
