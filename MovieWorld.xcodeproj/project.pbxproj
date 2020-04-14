@@ -36,64 +36,6 @@
 		138655AE2415F9BD009DC6C7 /* UpcomingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138655AD2415F9BD009DC6C7 /* UpcomingCell.swift */; };
 		138655B02415F9CA009DC6C7 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138655AF2415F9CA009DC6C7 /* HeaderView.swift */; };
 		138655B22415F9DE009DC6C7 /* MovieCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138655B12415F9DE009DC6C7 /* MovieCollectionView.swift */; };
-		138655EE2415FFD0009DC6C7 /* thegrudge_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655B42415FFC6009DC6C7 /* thegrudge_land.jpg */; };
-		138655EF2415FFD0009DC6C7 /* rambo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655B52415FFC6009DC6C7 /* rambo.jpg */; };
-		138655F02415FFD0009DC6C7 /* choyeo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655B62415FFC6009DC6C7 /* choyeo.jpg */; };
-		138655F12415FFD0009DC6C7 /* justmercy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655B72415FFC7009DC6C7 /* justmercy.jpg */; };
-		138655F22415FFD0009DC6C7 /* frozen2_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655B82415FFC7009DC6C7 /* frozen2_land.jpg */; };
-		138655F32415FFD0009DC6C7 /* cats.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655B92415FFC7009DC6C7 /* cats.jpg */; };
-		138655F42415FFD0009DC6C7 /* 1917.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655BA2415FFC7009DC6C7 /* 1917.jpg */; };
-		138655F52415FFD0009DC6C7 /* thesongofnames.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655BB2415FFC7009DC6C7 /* thesongofnames.jpg */; };
-		138655F62415FFD0009DC6C7 /* ipman4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655BC2415FFC7009DC6C7 /* ipman4.jpg */; };
-		138655F72415FFD0009DC6C7 /* keanureeves.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655BD2415FFC7009DC6C7 /* keanureeves.jpg */; };
-		138655F82415FFD0009DC6C7 /* adastra_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655BE2415FFC8009DC6C7 /* adastra_land.jpg */; };
-		138655F92415FFD0009DC6C7 /* underwater.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655BF2415FFC8009DC6C7 /* underwater.jpg */; };
-		138655FA2415FFD0009DC6C7 /* spiesindisguise.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655C02415FFC8009DC6C7 /* spiesindisguise.jpg */; };
-		138655FB2415FFD0009DC6C7 /* ipman4_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655C12415FFC8009DC6C7 /* ipman4_land.jpg */; };
-		138655FC2415FFD0009DC6C7 /* theinformer_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655C22415FFC8009DC6C7 /* theinformer_land.jpg */; };
-		138655FD2415FFD0009DC6C7 /* knivesout_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655C32415FFC9009DC6C7 /* knivesout_land.jpg */; };
-		138655FE2415FFD0009DC6C7 /* jumanji.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655C42415FFC9009DC6C7 /* jumanji.jpg */; };
-		138655FF2415FFD0009DC6C7 /* joker_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655C52415FFC9009DC6C7 /* joker_land.jpg */; };
-		138656002415FFD0009DC6C7 /* jumanji_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655C62415FFC9009DC6C7 /* jumanji_land.jpg */; };
-		138656012415FFD0009DC6C7 /* rosebyrne.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655C72415FFC9009DC6C7 /* rosebyrne.jpg */; };
-		138656022415FFD0009DC6C7 /* starwars_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655C82415FFCA009DC6C7 /* starwars_land.jpg */; };
-		138656032415FFD0009DC6C7 /* marriagestory.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655C92415FFCA009DC6C7 /* marriagestory.jpg */; };
-		138656042415FFD0009DC6C7 /* spiesindisguise_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655CA2415FFCB009DC6C7 /* spiesindisguise_land.jpg */; };
-		138656052415FFD0009DC6C7 /* code_8_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655CB2415FFCB009DC6C7 /* code_8_land.jpg */; };
-		138656062415FFD0009DC6C7 /* thegrudge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655CC2415FFCB009DC6C7 /* thegrudge.jpg */; };
-		138656072415FFD0009DC6C7 /* it2_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655CD2415FFCB009DC6C7 /* it2_land.jpg */; };
-		138656082415FFD0009DC6C7 /* 1917_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655CE2415FFCB009DC6C7 /* 1917_land.jpg */; };
-		138656092415FFD0009DC6C7 /* garrison7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655CF2415FFCB009DC6C7 /* garrison7.jpg */; };
-		1386560A2415FFD0009DC6C7 /* uncutgems_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655D02415FFCB009DC6C7 /* uncutgems_land.jpg */; };
-		1386560B2415FFD0009DC6C7 /* garrison7_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655D12415FFCC009DC6C7 /* garrison7_land.jpg */; };
-		1386560C2415FFD0009DC6C7 /* outih_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655D22415FFCC009DC6C7 /* outih_land.jpg */; };
-		1386560D2415FFD0009DC6C7 /* underwater_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655D32415FFCC009DC6C7 /* underwater_land.jpg */; };
-		1386560E2415FFD0009DC6C7 /* rambo_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655D42415FFCC009DC6C7 /* rambo_land.jpg */; };
-		1386560F2415FFD0009DC6C7 /* marriagestory_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655D52415FFCD009DC6C7 /* marriagestory_land.jpg */; };
-		138656102415FFD0009DC6C7 /* angelinajolie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655D62415FFCD009DC6C7 /* angelinajolie.jpg */; };
-		138656112415FFD0009DC6C7 /* uncutgems.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655D72415FFCD009DC6C7 /* uncutgems.jpg */; };
-		138656122415FFD0009DC6C7 /* lilwoman_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655D82415FFCD009DC6C7 /* lilwoman_land.jpg */; };
-		138656132415FFD0009DC6C7 /* justmercy_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655D92415FFCD009DC6C7 /* justmercy_land.jpg */; };
-		138656142415FFD0009DC6C7 /* henrycavil.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655DA2415FFCD009DC6C7 /* henrycavil.jpg */; };
-		138656152415FFD0009DC6C7 /* frozen2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655DB2415FFCD009DC6C7 /* frozen2.jpg */; };
-		138656162415FFD0009DC6C7 /* bombshell_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655DC2415FFCD009DC6C7 /* bombshell_land.jpg */; };
-		138656172415FFD0009DC6C7 /* cats_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655DD2415FFCE009DC6C7 /* cats_land.jpg */; };
-		138656182415FFD0009DC6C7 /* dwaynejohnson.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655DE2415FFCE009DC6C7 /* dwaynejohnson.jpg */; };
-		138656192415FFD0009DC6C7 /* theinformer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655DF2415FFCE009DC6C7 /* theinformer.jpg */; };
-		1386561A2415FFD0009DC6C7 /* outih.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655E02415FFCE009DC6C7 /* outih.jpg */; };
-		1386561B2415FFD0009DC6C7 /* lilwoman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655E12415FFCE009DC6C7 /* lilwoman.jpg */; };
-		1386561C2415FFD0009DC6C7 /* bombshell.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655E22415FFCE009DC6C7 /* bombshell.jpg */; };
-		1386561D2415FFD0009DC6C7 /* adastra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655E32415FFCF009DC6C7 /* adastra.jpg */; };
-		1386561E2415FFD0009DC6C7 /* thesongofnames_land.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655E42415FFCF009DC6C7 /* thesongofnames_land.jpg */; };
-		1386561F2415FFD0009DC6C7 /* knivesout.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655E52415FFCF009DC6C7 /* knivesout.jpg */; };
-		138656202415FFD0009DC6C7 /* scarlJohan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655E62415FFCF009DC6C7 /* scarlJohan.jpg */; };
-		138656212415FFD0009DC6C7 /* starwars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655E72415FFCF009DC6C7 /* starwars.jpg */; };
-		138656222415FFD0009DC6C7 /* joker.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655E82415FFCF009DC6C7 /* joker.jpg */; };
-		138656232415FFD0009DC6C7 /* code_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655E92415FFCF009DC6C7 /* code_8.jpg */; };
-		138656242415FFD0009DC6C7 /* it2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655EA2415FFCF009DC6C7 /* it2.jpg */; };
-		138656252415FFD0009DC6C7 /* bradpitt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655EB2415FFCF009DC6C7 /* bradpitt.jpg */; };
-		138656262415FFD0009DC6C7 /* rebeccaferguson.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655EC2415FFD0009DC6C7 /* rebeccaferguson.jpg */; };
-		138656272415FFD0009DC6C7 /* kaleycuoco.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 138655ED2415FFD0009DC6C7 /* kaleycuoco.jpg */; };
 		1386562924162AED009DC6C7 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1386562824162AED009DC6C7 /* MovieViewModel.swift */; };
 		1386562C24162D7E009DC6C7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 1386562B24162D7E009DC6C7 /* Kingfisher */; };
 		1386562E24162D7E009DC6C7 /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1386562D24162D7E009DC6C7 /* KingfisherSwiftUI */; };
@@ -145,64 +87,6 @@
 		138655AD2415F9BD009DC6C7 /* UpcomingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCell.swift; sourceTree = "<group>"; };
 		138655AF2415F9CA009DC6C7 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		138655B12415F9DE009DC6C7 /* MovieCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionView.swift; sourceTree = "<group>"; };
-		138655B42415FFC6009DC6C7 /* thegrudge_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thegrudge_land.jpg; sourceTree = "<group>"; };
-		138655B52415FFC6009DC6C7 /* rambo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rambo.jpg; sourceTree = "<group>"; };
-		138655B62415FFC6009DC6C7 /* choyeo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = choyeo.jpg; sourceTree = "<group>"; };
-		138655B72415FFC7009DC6C7 /* justmercy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = justmercy.jpg; sourceTree = "<group>"; };
-		138655B82415FFC7009DC6C7 /* frozen2_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = frozen2_land.jpg; sourceTree = "<group>"; };
-		138655B92415FFC7009DC6C7 /* cats.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cats.jpg; sourceTree = "<group>"; };
-		138655BA2415FFC7009DC6C7 /* 1917.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1917.jpg; sourceTree = "<group>"; };
-		138655BB2415FFC7009DC6C7 /* thesongofnames.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thesongofnames.jpg; sourceTree = "<group>"; };
-		138655BC2415FFC7009DC6C7 /* ipman4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ipman4.jpg; sourceTree = "<group>"; };
-		138655BD2415FFC7009DC6C7 /* keanureeves.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = keanureeves.jpg; sourceTree = "<group>"; };
-		138655BE2415FFC8009DC6C7 /* adastra_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = adastra_land.jpg; sourceTree = "<group>"; };
-		138655BF2415FFC8009DC6C7 /* underwater.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = underwater.jpg; sourceTree = "<group>"; };
-		138655C02415FFC8009DC6C7 /* spiesindisguise.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spiesindisguise.jpg; sourceTree = "<group>"; };
-		138655C12415FFC8009DC6C7 /* ipman4_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ipman4_land.jpg; sourceTree = "<group>"; };
-		138655C22415FFC8009DC6C7 /* theinformer_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = theinformer_land.jpg; sourceTree = "<group>"; };
-		138655C32415FFC9009DC6C7 /* knivesout_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = knivesout_land.jpg; sourceTree = "<group>"; };
-		138655C42415FFC9009DC6C7 /* jumanji.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jumanji.jpg; sourceTree = "<group>"; };
-		138655C52415FFC9009DC6C7 /* joker_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = joker_land.jpg; sourceTree = "<group>"; };
-		138655C62415FFC9009DC6C7 /* jumanji_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jumanji_land.jpg; sourceTree = "<group>"; };
-		138655C72415FFC9009DC6C7 /* rosebyrne.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rosebyrne.jpg; sourceTree = "<group>"; };
-		138655C82415FFCA009DC6C7 /* starwars_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = starwars_land.jpg; sourceTree = "<group>"; };
-		138655C92415FFCA009DC6C7 /* marriagestory.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = marriagestory.jpg; sourceTree = "<group>"; };
-		138655CA2415FFCB009DC6C7 /* spiesindisguise_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spiesindisguise_land.jpg; sourceTree = "<group>"; };
-		138655CB2415FFCB009DC6C7 /* code_8_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = code_8_land.jpg; sourceTree = "<group>"; };
-		138655CC2415FFCB009DC6C7 /* thegrudge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thegrudge.jpg; sourceTree = "<group>"; };
-		138655CD2415FFCB009DC6C7 /* it2_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = it2_land.jpg; sourceTree = "<group>"; };
-		138655CE2415FFCB009DC6C7 /* 1917_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1917_land.jpg; sourceTree = "<group>"; };
-		138655CF2415FFCB009DC6C7 /* garrison7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = garrison7.jpg; sourceTree = "<group>"; };
-		138655D02415FFCB009DC6C7 /* uncutgems_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = uncutgems_land.jpg; sourceTree = "<group>"; };
-		138655D12415FFCC009DC6C7 /* garrison7_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = garrison7_land.jpg; sourceTree = "<group>"; };
-		138655D22415FFCC009DC6C7 /* outih_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = outih_land.jpg; sourceTree = "<group>"; };
-		138655D32415FFCC009DC6C7 /* underwater_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = underwater_land.jpg; sourceTree = "<group>"; };
-		138655D42415FFCC009DC6C7 /* rambo_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rambo_land.jpg; sourceTree = "<group>"; };
-		138655D52415FFCD009DC6C7 /* marriagestory_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = marriagestory_land.jpg; sourceTree = "<group>"; };
-		138655D62415FFCD009DC6C7 /* angelinajolie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = angelinajolie.jpg; sourceTree = "<group>"; };
-		138655D72415FFCD009DC6C7 /* uncutgems.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = uncutgems.jpg; sourceTree = "<group>"; };
-		138655D82415FFCD009DC6C7 /* lilwoman_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lilwoman_land.jpg; sourceTree = "<group>"; };
-		138655D92415FFCD009DC6C7 /* justmercy_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = justmercy_land.jpg; sourceTree = "<group>"; };
-		138655DA2415FFCD009DC6C7 /* henrycavil.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = henrycavil.jpg; sourceTree = "<group>"; };
-		138655DB2415FFCD009DC6C7 /* frozen2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = frozen2.jpg; sourceTree = "<group>"; };
-		138655DC2415FFCD009DC6C7 /* bombshell_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bombshell_land.jpg; sourceTree = "<group>"; };
-		138655DD2415FFCE009DC6C7 /* cats_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cats_land.jpg; sourceTree = "<group>"; };
-		138655DE2415FFCE009DC6C7 /* dwaynejohnson.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dwaynejohnson.jpg; sourceTree = "<group>"; };
-		138655DF2415FFCE009DC6C7 /* theinformer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = theinformer.jpg; sourceTree = "<group>"; };
-		138655E02415FFCE009DC6C7 /* outih.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = outih.jpg; sourceTree = "<group>"; };
-		138655E12415FFCE009DC6C7 /* lilwoman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lilwoman.jpg; sourceTree = "<group>"; };
-		138655E22415FFCE009DC6C7 /* bombshell.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bombshell.jpg; sourceTree = "<group>"; };
-		138655E32415FFCF009DC6C7 /* adastra.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = adastra.jpg; sourceTree = "<group>"; };
-		138655E42415FFCF009DC6C7 /* thesongofnames_land.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thesongofnames_land.jpg; sourceTree = "<group>"; };
-		138655E52415FFCF009DC6C7 /* knivesout.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = knivesout.jpg; sourceTree = "<group>"; };
-		138655E62415FFCF009DC6C7 /* scarlJohan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = scarlJohan.jpg; sourceTree = "<group>"; };
-		138655E72415FFCF009DC6C7 /* starwars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = starwars.jpg; sourceTree = "<group>"; };
-		138655E82415FFCF009DC6C7 /* joker.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = joker.jpg; sourceTree = "<group>"; };
-		138655E92415FFCF009DC6C7 /* code_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = code_8.jpg; sourceTree = "<group>"; };
-		138655EA2415FFCF009DC6C7 /* it2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = it2.jpg; sourceTree = "<group>"; };
-		138655EB2415FFCF009DC6C7 /* bradpitt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bradpitt.jpg; sourceTree = "<group>"; };
-		138655EC2415FFD0009DC6C7 /* rebeccaferguson.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rebeccaferguson.jpg; sourceTree = "<group>"; };
-		138655ED2415FFD0009DC6C7 /* kaleycuoco.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kaleycuoco.jpg; sourceTree = "<group>"; };
 		1386562824162AED009DC6C7 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		13A33803243F49A1001F7D99 /* SinglePersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePersonView.swift; sourceTree = "<group>"; };
 		13A33805243F49CB001F7D99 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
@@ -368,64 +252,6 @@
 		138655B32415FF99009DC6C7 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				138655CE2415FFCB009DC6C7 /* 1917_land.jpg */,
-				138655BA2415FFC7009DC6C7 /* 1917.jpg */,
-				138655BE2415FFC8009DC6C7 /* adastra_land.jpg */,
-				138655E32415FFCF009DC6C7 /* adastra.jpg */,
-				138655D62415FFCD009DC6C7 /* angelinajolie.jpg */,
-				138655DC2415FFCD009DC6C7 /* bombshell_land.jpg */,
-				138655E22415FFCE009DC6C7 /* bombshell.jpg */,
-				138655EB2415FFCF009DC6C7 /* bradpitt.jpg */,
-				138655DD2415FFCE009DC6C7 /* cats_land.jpg */,
-				138655B92415FFC7009DC6C7 /* cats.jpg */,
-				138655B62415FFC6009DC6C7 /* choyeo.jpg */,
-				138655CB2415FFCB009DC6C7 /* code_8_land.jpg */,
-				138655E92415FFCF009DC6C7 /* code_8.jpg */,
-				138655DE2415FFCE009DC6C7 /* dwaynejohnson.jpg */,
-				138655B82415FFC7009DC6C7 /* frozen2_land.jpg */,
-				138655DB2415FFCD009DC6C7 /* frozen2.jpg */,
-				138655D12415FFCC009DC6C7 /* garrison7_land.jpg */,
-				138655CF2415FFCB009DC6C7 /* garrison7.jpg */,
-				138655DA2415FFCD009DC6C7 /* henrycavil.jpg */,
-				138655C12415FFC8009DC6C7 /* ipman4_land.jpg */,
-				138655BC2415FFC7009DC6C7 /* ipman4.jpg */,
-				138655CD2415FFCB009DC6C7 /* it2_land.jpg */,
-				138655EA2415FFCF009DC6C7 /* it2.jpg */,
-				138655C52415FFC9009DC6C7 /* joker_land.jpg */,
-				138655E82415FFCF009DC6C7 /* joker.jpg */,
-				138655C62415FFC9009DC6C7 /* jumanji_land.jpg */,
-				138655C42415FFC9009DC6C7 /* jumanji.jpg */,
-				138655D92415FFCD009DC6C7 /* justmercy_land.jpg */,
-				138655B72415FFC7009DC6C7 /* justmercy.jpg */,
-				138655ED2415FFD0009DC6C7 /* kaleycuoco.jpg */,
-				138655BD2415FFC7009DC6C7 /* keanureeves.jpg */,
-				138655C32415FFC9009DC6C7 /* knivesout_land.jpg */,
-				138655E52415FFCF009DC6C7 /* knivesout.jpg */,
-				138655D82415FFCD009DC6C7 /* lilwoman_land.jpg */,
-				138655E12415FFCE009DC6C7 /* lilwoman.jpg */,
-				138655D52415FFCD009DC6C7 /* marriagestory_land.jpg */,
-				138655C92415FFCA009DC6C7 /* marriagestory.jpg */,
-				138655D22415FFCC009DC6C7 /* outih_land.jpg */,
-				138655E02415FFCE009DC6C7 /* outih.jpg */,
-				138655D42415FFCC009DC6C7 /* rambo_land.jpg */,
-				138655B52415FFC6009DC6C7 /* rambo.jpg */,
-				138655EC2415FFD0009DC6C7 /* rebeccaferguson.jpg */,
-				138655C72415FFC9009DC6C7 /* rosebyrne.jpg */,
-				138655E62415FFCF009DC6C7 /* scarlJohan.jpg */,
-				138655CA2415FFCB009DC6C7 /* spiesindisguise_land.jpg */,
-				138655C02415FFC8009DC6C7 /* spiesindisguise.jpg */,
-				138655C82415FFCA009DC6C7 /* starwars_land.jpg */,
-				138655E72415FFCF009DC6C7 /* starwars.jpg */,
-				138655B42415FFC6009DC6C7 /* thegrudge_land.jpg */,
-				138655CC2415FFCB009DC6C7 /* thegrudge.jpg */,
-				138655C22415FFC8009DC6C7 /* theinformer_land.jpg */,
-				138655DF2415FFCE009DC6C7 /* theinformer.jpg */,
-				138655E42415FFCF009DC6C7 /* thesongofnames_land.jpg */,
-				138655BB2415FFC7009DC6C7 /* thesongofnames.jpg */,
-				138655D02415FFCB009DC6C7 /* uncutgems_land.jpg */,
-				138655D72415FFCD009DC6C7 /* uncutgems.jpg */,
-				138655D32415FFCC009DC6C7 /* underwater_land.jpg */,
-				138655BF2415FFC8009DC6C7 /* underwater.jpg */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -543,67 +369,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				13BAFBFF23F5369900AAD320 /* LaunchScreen.storyboard in Resources */,
-				138656192415FFD0009DC6C7 /* theinformer.jpg in Resources */,
-				138656272415FFD0009DC6C7 /* kaleycuoco.jpg in Resources */,
-				138655F82415FFD0009DC6C7 /* adastra_land.jpg in Resources */,
-				138656122415FFD0009DC6C7 /* lilwoman_land.jpg in Resources */,
-				138655EF2415FFD0009DC6C7 /* rambo.jpg in Resources */,
-				138655FE2415FFD0009DC6C7 /* jumanji.jpg in Resources */,
-				1386561D2415FFD0009DC6C7 /* adastra.jpg in Resources */,
-				1386561A2415FFD0009DC6C7 /* outih.jpg in Resources */,
-				138656022415FFD0009DC6C7 /* starwars_land.jpg in Resources */,
-				138656252415FFD0009DC6C7 /* bradpitt.jpg in Resources */,
-				138655F12415FFD0009DC6C7 /* justmercy.jpg in Resources */,
-				1386560F2415FFD0009DC6C7 /* marriagestory_land.jpg in Resources */,
-				138656152415FFD0009DC6C7 /* frozen2.jpg in Resources */,
 				13E217AD24077CF100C6E4E8 /* APIKeys.plist in Resources */,
-				1386561B2415FFD0009DC6C7 /* lilwoman.jpg in Resources */,
-				138655EE2415FFD0009DC6C7 /* thegrudge_land.jpg in Resources */,
-				138656002415FFD0009DC6C7 /* jumanji_land.jpg in Resources */,
 				13BAFBFC23F5369900AAD320 /* Preview Assets.xcassets in Resources */,
-				138656082415FFD0009DC6C7 /* 1917_land.jpg in Resources */,
-				1386560A2415FFD0009DC6C7 /* uncutgems_land.jpg in Resources */,
-				138656242415FFD0009DC6C7 /* it2.jpg in Resources */,
-				138656052415FFD0009DC6C7 /* code_8_land.jpg in Resources */,
-				138655FF2415FFD0009DC6C7 /* joker_land.jpg in Resources */,
-				138656072415FFD0009DC6C7 /* it2_land.jpg in Resources */,
-				138656132415FFD0009DC6C7 /* justmercy_land.jpg in Resources */,
-				138656202415FFD0009DC6C7 /* scarlJohan.jpg in Resources */,
-				1386560C2415FFD0009DC6C7 /* outih_land.jpg in Resources */,
-				138656232415FFD0009DC6C7 /* code_8.jpg in Resources */,
-				138655FD2415FFD0009DC6C7 /* knivesout_land.jpg in Resources */,
-				138655FC2415FFD0009DC6C7 /* theinformer_land.jpg in Resources */,
-				138656162415FFD0009DC6C7 /* bombshell_land.jpg in Resources */,
-				138655F52415FFD0009DC6C7 /* thesongofnames.jpg in Resources */,
-				138656042415FFD0009DC6C7 /* spiesindisguise_land.jpg in Resources */,
-				138655F32415FFD0009DC6C7 /* cats.jpg in Resources */,
-				1386561E2415FFD0009DC6C7 /* thesongofnames_land.jpg in Resources */,
-				138655F72415FFD0009DC6C7 /* keanureeves.jpg in Resources */,
-				138656142415FFD0009DC6C7 /* henrycavil.jpg in Resources */,
-				138656112415FFD0009DC6C7 /* uncutgems.jpg in Resources */,
-				138655F02415FFD0009DC6C7 /* choyeo.jpg in Resources */,
-				1386560E2415FFD0009DC6C7 /* rambo_land.jpg in Resources */,
 				13BAFBF923F5369900AAD320 /* Assets.xcassets in Resources */,
-				138655FA2415FFD0009DC6C7 /* spiesindisguise.jpg in Resources */,
-				1386561F2415FFD0009DC6C7 /* knivesout.jpg in Resources */,
-				1386560D2415FFD0009DC6C7 /* underwater_land.jpg in Resources */,
-				138656032415FFD0009DC6C7 /* marriagestory.jpg in Resources */,
-				138656262415FFD0009DC6C7 /* rebeccaferguson.jpg in Resources */,
-				138656212415FFD0009DC6C7 /* starwars.jpg in Resources */,
-				138656172415FFD0009DC6C7 /* cats_land.jpg in Resources */,
-				138656092415FFD0009DC6C7 /* garrison7.jpg in Resources */,
-				138656102415FFD0009DC6C7 /* angelinajolie.jpg in Resources */,
-				138656062415FFD0009DC6C7 /* thegrudge.jpg in Resources */,
-				1386561C2415FFD0009DC6C7 /* bombshell.jpg in Resources */,
-				138656222415FFD0009DC6C7 /* joker.jpg in Resources */,
-				138655F42415FFD0009DC6C7 /* 1917.jpg in Resources */,
-				138655F62415FFD0009DC6C7 /* ipman4.jpg in Resources */,
-				138656182415FFD0009DC6C7 /* dwaynejohnson.jpg in Resources */,
-				138655F92415FFD0009DC6C7 /* underwater.jpg in Resources */,
-				138656012415FFD0009DC6C7 /* rosebyrne.jpg in Resources */,
-				138655F22415FFD0009DC6C7 /* frozen2_land.jpg in Resources */,
-				138655FB2415FFD0009DC6C7 /* ipman4_land.jpg in Resources */,
-				1386560B2415FFD0009DC6C7 /* garrison7_land.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,6 +560,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieWorld/Preview Content\"";
 				DEVELOPMENT_TEAM = BV97A5VZCV;
 				ENABLE_PREVIEWS = YES;
@@ -800,10 +569,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.chuckworld.ios.MovieWorld;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chuck.family.moviefans;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -812,6 +582,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieWorld/Preview Content\"";
 				DEVELOPMENT_TEAM = BV97A5VZCV;
 				ENABLE_PREVIEWS = YES;
@@ -820,10 +591,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.chuckworld.ios.MovieWorld;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chuck.family.moviefans;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
