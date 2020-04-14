@@ -17,6 +17,7 @@ struct MovieListRow: View {
         .resizable()
         .aspectRatio(contentMode: .fit).cornerRadius(20)
     }
+    
         
     fileprivate func createTitle() -> some View {
         return Text(movie.title)

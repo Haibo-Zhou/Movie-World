@@ -43,10 +43,13 @@ struct Movie: Codable {
     let runtime,revenue:Int?
     let budget: Int?
     let productionCompanies: [ProductionCompany]?
+    // for movie list view
+    let genreIds: [Int]
 
     
     static var `default`: Movie {
-        Movie(id: 0, title: "", releaseDate: "", overview: "", popularity: 0, genres: [], voteAverage: 0, originalLanguage: "", posterPath: "", backdropPath: "", voteCount: 0, status: "", runtime: 0, revenue: 0, budget: 0, productionCompanies: [])
+        Movie(id: 0, title: "", releaseDate: "", overview: "", popularity: 0, genres: [], voteAverage: 0, originalLanguage: "", posterPath: "", backdropPath: "", voteCount: 0, status: "", runtime: 0, revenue: 0, budget: 0, productionCompanies: [],
+        genreIds: [])
     }
     
 }
