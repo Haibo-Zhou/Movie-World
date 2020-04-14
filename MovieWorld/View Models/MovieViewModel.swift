@@ -44,7 +44,7 @@ struct MovieViewModel: Identifiable, DummyBundle, Hashable {
     var runtime: String
     var productionCompany: String
     // for movie list view
-    var genreNames: [String] = []
+    var genreNames: String = ""
     var allGenres: [Int: String]
 
 
@@ -79,7 +79,7 @@ struct MovieViewModel: Identifiable, DummyBundle, Hashable {
         14: "Fantasy", 36: "History", 27: "Horror", 10402: "Music",
         9648: "Mystery", 10749: "Romance", 878: "Science Fiction",
         10770: "TV Movie", 53: "Thriller", 10752: "War", 37: "Western"]
-        self.genreNames = getGenreNames(with: movie.genreIds)
+        self.genreNames = getGenreNames(with: movie.genreIds ?? [])
         
         
         if let average = movie.voteAverage, average > 0 {
@@ -87,10 +87,10 @@ struct MovieViewModel: Identifiable, DummyBundle, Hashable {
         }
     }
     
-    private mutating func getGenreNames(with genreIds: [Int]) -> [String] {
+    private mutating func getGenreNames(with genreIds: [Int]) -> String {
         
         for genreId in genreIds {
-            genreNames.append(allGenres[genreId]!)
+            genreNames.append(contentsOf: allGenres[genreId]! + " ")
         }
         return genreNames
     }

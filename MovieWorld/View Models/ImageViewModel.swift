@@ -41,15 +41,6 @@ struct ImageViewModel: DummyBundle, Hashable { // Identifiable
         self.voteCount = image.voteCount ?? 0
         self.width = image.width ?? 0
     }
-
-
-//    static private func posterImageUrl(with path: String, baseUrl: String, size: String) -> URL {
-//        if let url = URL(string: "\(baseUrl)\(size)\(path)"){
-//            return url
-//        }
-//
-//        return URL(string: "https://via.placeholder.com/150/0000FF/808080?Text=No&image&available")!
-//    }
     
     static private func backdropImageUrl(with path: String, baseUrl: String, size: String) -> URL {
         if path == "" {

@@ -44,7 +44,7 @@ struct Movie: Codable {
     let budget: Int?
     let productionCompanies: [ProductionCompany]?
     // for movie list view
-    let genreIds: [Int]
+    let genreIds: [Int]?
 
     
     static var `default`: Movie {

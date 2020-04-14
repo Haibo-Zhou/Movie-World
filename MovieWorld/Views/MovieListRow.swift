@@ -12,31 +12,54 @@ import KingfisherSwiftUI
 struct MovieListRow: View {
     var movie: MovieViewModel
     
-    fileprivate func createImage() -> some View {
-        return KFImage(source: .network(movie.posterUrl))
-        .resizable()
-        .aspectRatio(contentMode: .fit).cornerRadius(20)
-    }
-    
-        
-    fileprivate func createTitle() -> some View {
-        return Text(movie.title)
-        .font(.system(size: 25, weight: .black, design: .rounded))
-        .foregroundColor(Color.white)
-    }
-    
     var body: some View {
-        return ZStack(alignment: .bottom) {
-            createImage()
-            
-            VStack(alignment: .leading) {
-                createTitle()
-                LineRatingView(value: movie.voteAverage)
-            }.frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
-                .background(LinearGradient(gradient: Gradient(colors: [Color.black, Color.clear]) , startPoint: .bottom , endPoint: .top)).cornerRadius(20)
-                .shadow(radius: 10)
-        
+        HStack(alignment: .top, spacing: 12) {
+            MovieImage(movie: movie)
+            VStack(alignment: .leading, spacing: 6) {
+                MovieTitle(movie: movie)
+                Text("Stars Stars Stars")
+                MovieCategory(movie: movie)
+                
+            }
         }.padding(.vertical)
+    }
+    
+    // MARK: Sub-Component
+    struct MovieImage: View {
+        var movie: MovieViewModel
+        
+        var body: some View {
+            KFImage(source: .network(movie.posterUrl))
+            .resizable()
+            .aspectRatio(2/3, contentMode: .fit)
+            .cornerRadius(8)
+                .frame(width: 100)
+        }
+    }
+    
+    struct MovieTitle: View {
+        var movie: MovieViewModel
+        
+        var body: some View {
+           
+            Text(movie.title)
+                .font(.headline)
+            + Text(" (" + movie.releaseDate.prefix(4) + ")")
+                .font(.headline)
+                .foregroundColor(.gray)
+            
+        }
+    }
+    
+    struct MovieCategory: View {
+        var movie: MovieViewModel
+        
+        var body: some View {
+            
+            Text(movie.genreNames)
+                .font(.subheadline)
+                .fontWeight(.medium)
+                .foregroundColor(.gray)
+        }
     }
 }
