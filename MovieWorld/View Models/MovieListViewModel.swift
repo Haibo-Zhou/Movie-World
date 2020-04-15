@@ -20,6 +20,7 @@ class MovieListViewModel: ObservableObject {
     @Published var person = PersonViewModel.default
     @Published var personInfoBundle = [PersonInfoSection: [DummyBundle]]()
     @Published var paginatedMovies = [MovieViewModel]()
+    @Published var paginatedActors = [PersonViewModel]()
     
     
     func getSectionMoviesBundle() {
@@ -123,6 +124,22 @@ class MovieListViewModel: ObservableObject {
                 }
             }) { movies in
                 self.paginatedMovies.append(contentsOf: movies.results.map(MovieViewModel.init))
+        }.store(in: &self.cancellableSet)
+    }
+    
+    func getPaginatedActors(for page: Int) {
+        webService.getPaginatedActorPublisher(for: page)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { status in
+                switch status {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+            }) { actors in
+                self.paginatedActors.append(contentsOf: actors.results.map(PersonViewModel.init))
         }.store(in: &self.cancellableSet)
     }
 }

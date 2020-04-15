@@ -31,6 +31,7 @@ struct TMDBClient {
         case movieCredits(Int) // Get the movie credits for a person. Aka person attended movies.
         case personImages(Int) // Get the images for a person.
         case paginatedMovies(HomeSection, Int)
+        case paginatedActors(Int)
         
         var stringValue: String {
             switch self {
@@ -70,6 +71,9 @@ struct TMDBClient {
             case .paginatedMovies(let section, let page):
                 return TMDBClient.Endpoints.baseUrl + "/movie/\(section.rawValue.replacingOccurrences(of: " ", with: "_").lowercased())"
                 + Endpoints.apiKeyParam + "&language=en-US&page=\(page)"
+                
+            case .paginatedActors(let page):
+                return TMDBClient.Endpoints.baseUrl + "/person/popular" + Endpoints.apiKeyParam + "&language=en-US&page=\(page)"
             }
         }
         

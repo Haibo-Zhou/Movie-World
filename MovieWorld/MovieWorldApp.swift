@@ -26,7 +26,7 @@ struct MovieWorldAppView: View {
                     .sheet(isPresented: $showSheet) {
                         if self.selectedIndexPath == nil {
                             if self.section == .TopActor {
-                                Text("ActorListView")
+                                ActorListView(section: self.section)
                             } else {
                                 MovieListView(section: self.section)
                             }
