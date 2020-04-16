@@ -42,7 +42,7 @@ struct ActorListView: View {
     }
 }
 
-struct ActorView_Previews: PreviewProvider {
+struct ActorListView_Previews: PreviewProvider {
     static var previews: some View {
         MovieListView(section: .NowPlaying)
     }
