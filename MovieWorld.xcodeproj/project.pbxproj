@@ -43,6 +43,7 @@
 		13A192802446B45400738EC9 /* ActorListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A1927F2446B45400738EC9 /* ActorListRow.swift */; };
 		13A19283244804B500738EC9 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A19282244804B400738EC9 /* ImageScrollView.swift */; };
 		13A192852448089400738EC9 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A192842448089400738EC9 /* ScrollViewController.swift */; };
+		13A19287244986B000738EC9 /* MovieSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A19286244986AF00738EC9 /* MovieSearchView.swift */; };
 		13A33804243F49A2001F7D99 /* SinglePersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A33803243F49A1001F7D99 /* SinglePersonView.swift */; };
 		13A33806243F49CB001F7D99 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A33805243F49CB001F7D99 /* PersonDetailView.swift */; };
 		13A3380824402ACB001F7D99 /* MovieCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A3380724402ACB001F7D99 /* MovieCredits.swift */; };
@@ -96,6 +97,7 @@
 		13A1927F2446B45400738EC9 /* ActorListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorListRow.swift; sourceTree = "<group>"; };
 		13A19282244804B400738EC9 /* ImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 		13A192842448089400738EC9 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		13A19286244986AF00738EC9 /* MovieSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchView.swift; sourceTree = "<group>"; };
 		13A33803243F49A1001F7D99 /* SinglePersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePersonView.swift; sourceTree = "<group>"; };
 		13A33805243F49CB001F7D99 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
 		13A3380724402ACB001F7D99 /* MovieCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCredits.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 				13A33803243F49A1001F7D99 /* SinglePersonView.swift */,
 				13A92A7D244410FB00E74A8A /* MovieListView.swift */,
 				13A1927D2446B03400738EC9 /* ActorListView.swift */,
+				13A19286244986AF00738EC9 /* MovieSearchView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				13A192852448089400738EC9 /* ScrollViewController.swift in Sources */,
 				13A192802446B45400738EC9 /* ActorListRow.swift in Sources */,
 				13698756242211E0008A7E49 /* ColorExt.swift in Sources */,
+				13A19287244986B000738EC9 /* MovieSearchView.swift in Sources */,
 				1369875C24232218008A7E49 /* Image.swift in Sources */,
 				1386562924162AED009DC6C7 /* MovieViewModel.swift in Sources */,
 				13A3380E24406A84001F7D99 /* PersonImageViewModel.swift in Sources */,
@@ -584,7 +588,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.2;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieWorld/Preview Content\"";
 				DEVELOPMENT_TEAM = BV97A5VZCV;
 				ENABLE_PREVIEWS = YES;
@@ -606,7 +610,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.2;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieWorld/Preview Content\"";
 				DEVELOPMENT_TEAM = BV97A5VZCV;
 				ENABLE_PREVIEWS = YES;

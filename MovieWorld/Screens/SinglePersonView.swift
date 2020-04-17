@@ -139,23 +139,25 @@ private struct PresentedImageView: View {
     @State private var scale: CGFloat = 1.0
     
     var body: some View {
-        KFImage(source: .network(image.fileURL))
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .scaleEffect(scale)
-            .onTapGesture(count: 2) {
-                if self.scale == 1.0 {
-                    self.scale += 0.5
-                } else {
-                    self.scale = 1.0
+        ZStack {
+            Color.black.edgesIgnoringSafeArea(.all)
+            KFImage(source: .network(image.fileURL))
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .scaleEffect(scale)
+                .onTapGesture(count: 2) {
+                    if self.scale == 1.0 {
+                        self.scale += 0.5
+                    } else {
+                        self.scale = 1.0
+                    }
                 }
-            }
-        .gesture(MagnificationGesture(minimumScaleDelta: 0.1).onChanged { value in
-            self.scale = value.magnitude
-        }.onEnded { val in
-            self.scale = val.magnitude
-        })
-    
+            .gesture(MagnificationGesture(minimumScaleDelta: 0.1).onChanged { value in
+                self.scale = value.magnitude
+            }.onEnded { val in
+                self.scale = val.magnitude
+            })
+        }
     }
 }
 

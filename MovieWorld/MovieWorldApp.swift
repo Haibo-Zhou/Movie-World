@@ -17,32 +17,43 @@ struct MovieWorldAppView: View {
     @ObservedObject var model = MovieListViewModel()
     
     var body: some View {
-        NavigationView {
-            
-            if model.sectionMoviesBundle.isEmpty {
-                Text("Loading...")
-            } else {
-                createCollectionView()
-                    .sheet(isPresented: $showSheet) {
-                        if self.selectedIndexPath == nil {
-                            if self.section == .TopActor {
-                                ActorListView(section: self.section)
+        TabView {
+            NavigationView {
+                if model.sectionMoviesBundle.isEmpty {
+                    Text("Loading...")
+                } else {
+                    createCollectionView()
+                        .sheet(isPresented: $showSheet) {
+                            if self.selectedIndexPath == nil {
+                                if self.section == .TopActor {
+                                    ActorListView(section: self.section)
+                                } else {
+                                    MovieListView(section: self.section)
+                                }
                             } else {
-                                MovieListView(section: self.section)
-                            }
-                        } else {
-                            if self.section == .TopActor {
-                                SinglePersonView(personId: (self.model.sectionMoviesBundle[self.section] as! [PersonViewModel])[self.selectedIndexPath!.item].id )
-                            } else {
-                                SingleMovieView(movieId: (self.model.sectionMoviesBundle[self.section] as! [MovieViewModel] ) [self.selectedIndexPath!.item].id )
+                                if self.section == .TopActor {
+                                    SinglePersonView(personId: (self.model.sectionMoviesBundle[self.section] as! [PersonViewModel])[self.selectedIndexPath!.item].id )
+                                } else {
+                                    SingleMovieView(movieId: (self.model.sectionMoviesBundle[self.section] as! [MovieViewModel] ) [self.selectedIndexPath!.item].id )
+                                }
                             }
                         }
-                    }
+                }
+            }.onAppear() {
+                self.model.getSectionMoviesBundle()
+            }
+            .tabItem {
+                Image(systemName: "house.fill")
+                Text("Home")
             }
             
-        }.onAppear() {
-            self.model.getSectionMoviesBundle()
-        }
+            Text("Search View")
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+            }
+        }.accentColor(.red)
+        
         
     }
     

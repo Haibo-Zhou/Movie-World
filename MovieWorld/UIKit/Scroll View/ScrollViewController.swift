@@ -48,6 +48,10 @@ class ScrollViewController<Content: View>: UIViewController, UIScrollViewDelegat
         self.hostingController.didMove(toParent: self)
     }
     
+//    override func viewDidLayoutSubviews() {
+//        self.scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: 1000)
+//    }
+    
 
     func makefullScreen(of viewA: UIView, to viewB: UIView) {
         viewA.translatesAutoresizingMaskIntoConstraints = false
