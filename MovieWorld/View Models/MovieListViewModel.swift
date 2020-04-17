@@ -21,6 +21,7 @@ class MovieListViewModel: ObservableObject {
     @Published var personInfoBundle = [PersonInfoSection: [DummyBundle]]()
     @Published var paginatedMovies = [MovieViewModel]()
     @Published var paginatedActors = [PersonViewModel]()
+    @Published var searchResults = [MovieViewModel]()
     
     
     func getSectionMoviesBundle() {
@@ -123,7 +124,8 @@ class MovieListViewModel: ObservableObject {
                     break
                 }
             }) { movies in
-                self.paginatedMovies.append(contentsOf: movies.results.map(MovieViewModel.init))
+                self.paginatedMovies = movies.results.map(MovieViewModel.init)
+                //self.paginatedMovies.append(contentsOf: movies.results.map(MovieViewModel.init))
         }.store(in: &self.cancellableSet)
     }
     
@@ -139,7 +141,24 @@ class MovieListViewModel: ObservableObject {
                     break
                 }
             }) { actors in
-                self.paginatedActors.append(contentsOf: actors.results.map(PersonViewModel.init))
+                self.paginatedActors = actors.results.map(PersonViewModel.init)
+                //self.paginatedActors.append(contentsOf: actors.results.map(PersonViewModel.init))
+        }.store(in: &self.cancellableSet)
+    }
+    
+    func getMovieSearchResults(for name: String) {
+        webService.getSearchResultsPublisher(for: name)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { status in
+                switch status {
+                case .finished:
+                    break
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+            }) { movies in
+                self.searchResults = movies.results.map(MovieViewModel.init)
         }.store(in: &self.cancellableSet)
     }
 }

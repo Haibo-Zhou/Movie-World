@@ -9,8 +9,28 @@
 import SwiftUI
 
 struct MovieSearchView: View {
+    @ObservedObject var model = MovieListViewModel()
+    @State private var searchText: String = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack {
+                SearchBar(text: $searchText, onTextChanged: searchMovies)
+                List {
+                    ForEach(model.searchResults.filter {
+                        self.searchText.isEmpty ? true : $0.title.lowercased().contains(self.searchText.lowercased())
+                    }) { movie in
+                        Text(movie.title)
+                    }
+                }
+            }
+        }
+    }
+    
+    func searchMovies(for searchText: String) {
+        if !searchText.isEmpty {
+            model.getMovieSearchResults(for: self.searchText)
+        }
     }
 }
 

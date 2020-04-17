@@ -32,6 +32,7 @@ struct TMDBClient {
         case personImages(Int) // Get the images for a person.
         case paginatedMovies(HomeSection, Int)
         case paginatedActors(Int)
+        case searchMovies(String)
         
         var stringValue: String {
             switch self {
@@ -74,6 +75,9 @@ struct TMDBClient {
                 
             case .paginatedActors(let page):
                 return TMDBClient.Endpoints.baseUrl + "/person/popular" + Endpoints.apiKeyParam + "&language=en-US&page=\(page)"
+                
+            case .searchMovies(let query):
+                return TMDBClient.Endpoints.baseUrl + "/search/movie" + Endpoints.apiKeyParam + "&language=en-US&query=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&page=1"
             }
         }
         
