@@ -16,28 +16,25 @@ struct MovieSearchView: View {
     @State private var page = 1
     
     var body: some View {
-        NavigationView {
-            VStack {
-                SearchBar(text: $searchText, onTextChanged: searchMovies)
-                List {
-                    ForEach(0..<model.searchResults.count, id: \.self) { i in
-                        MovieListRow(movie: self.model.searchResults[i])
-                            .onTapGesture {
-                                self.selectedId = self.model.searchResults[i].id
-                                self.showSheet.toggle()
-                            }
-                        .onAppear() {
-                            if i == self.model.searchResults.count - 1 {
-                                self.page += 1
-                                self.model.getMovieSearchResults(for: self.searchText, page: self.page)
-                            }
-                        }
+        List {
+            SearchBar(text: $searchText, onTextChanged: searchMovies)
+            
+            ForEach(0..<model.searchResults.count, id: \.self) { i in
+                MovieListRow(movie: self.model.searchResults[i])
+                    .onTapGesture {
+                        self.selectedId = self.model.searchResults[i].id
+                        self.showSheet.toggle()
+                    }
+                .onAppear() {
+                    if i == self.model.searchResults.count - 1 {
+                        self.page += 1
+                        self.model.getMovieSearchResults(for: self.searchText, page: self.page)
                     }
                 }
-                .sheet(isPresented: $showSheet) {
-                    SingleMovieView(movieId: self.selectedId)
-                }
             }
+        }
+        .sheet(isPresented: $showSheet) {
+            SingleMovieView(movieId: self.selectedId)
         }
     }
     
