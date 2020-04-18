@@ -92,8 +92,8 @@ struct WebService {
         createPublisher(for: TMDBClient.Endpoints.paginatedActors(page).url)
     }
     
-    func getSearchResultsPublisher(for name: String) -> AnyPublisher<TMDBMoviesResult, Error> {
-        createPublisher(for: TMDBClient.Endpoints.searchMovies(name).url)
+    func getSearchResultsPublisher(for name: String, page: Int) -> AnyPublisher<TMDBMoviesResult, Error> {
+        createPublisher(for: TMDBClient.Endpoints.searchMovies(name, page).url)
     }
 }
 

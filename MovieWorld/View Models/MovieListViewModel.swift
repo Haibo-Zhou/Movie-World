@@ -146,8 +146,8 @@ class MovieListViewModel: ObservableObject {
         }.store(in: &self.cancellableSet)
     }
     
-    func getMovieSearchResults(for name: String) {
-        webService.getSearchResultsPublisher(for: name)
+    func getMovieSearchResults(for name: String, page: Int) {
+        webService.getSearchResultsPublisher(for: name, page: page)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { status in
                 switch status {

@@ -27,15 +27,6 @@ struct SearchBar: UIViewRepresentable {
             text = searchText
             onTextChanged(text)
         }
-        
-//        func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn: NSRange, replacementText: String) -> Bool {
-//            if replacementText != "" {
-//                self.model.getMovieSearchResults(for: replacementText)
-//                return true
-//            } else {
-//                return false
-//            }
-//        }
     }
     
     func makeCoordinator() -> SearchBar.Coordinator {
@@ -45,6 +36,7 @@ struct SearchBar: UIViewRepresentable {
     func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
         let searchBar = UISearchBar(frame: .zero)
         searchBar.delegate = context.coordinator
+        searchBar.placeholder = "Search TMDB"
         searchBar.searchBarStyle = .minimal
         searchBar.autocapitalizationType = .none
         return searchBar
