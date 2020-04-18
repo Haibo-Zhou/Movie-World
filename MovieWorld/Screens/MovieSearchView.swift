@@ -18,9 +18,8 @@ struct MovieSearchView: View {
     var body: some View {
         VStack {
             SearchBar(text: $searchText, onTextChanged: searchMovies)
+            
             List {
-                
-                
                 ForEach(0..<model.searchResults.count, id: \.self) { i in
                     MovieListRow(movie: self.model.searchResults[i])
                         .onTapGesture {
@@ -34,7 +33,10 @@ struct MovieSearchView: View {
                         }
                     }
                 }
-            }
+            }.simultaneousGesture(DragGesture().onChanged({ _ in
+                // dismiss keyboard when scrolling begins
+                UIApplication.shared.endEditing()
+            }))
             .sheet(isPresented: $showSheet) {
                 SingleMovieView(movieId: self.selectedId)
             }
@@ -44,9 +46,11 @@ struct MovieSearchView: View {
     
     func searchMovies(for searchText: String) {
         if !searchText.isEmpty {
+            self.page = 1
             self.model.getMovieSearchResults(for: self.searchText, page: self.page)
         } else {
             // remove search result when a user clear keyword.
+            self.page = 1
             self.model.searchResults.removeAll()
         }
     }
@@ -62,5 +66,11 @@ extension View {
     func Print(_ vars: Any...) -> some View {
         for v in vars { print(v) }
         return EmptyView()
+    }
+}
+
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
