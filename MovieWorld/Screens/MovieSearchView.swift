@@ -44,6 +44,9 @@ struct MovieSearchView: View {
     func searchMovies(for searchText: String) {
         if !searchText.isEmpty {
             self.model.getMovieSearchResults(for: self.searchText, page: self.page)
+        } else {
+            // remove search result when a user clear keyword.
+            self.model.searchResults.removeAll()
         }
     }
 }

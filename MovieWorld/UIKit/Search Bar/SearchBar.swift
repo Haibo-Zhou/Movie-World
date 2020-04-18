@@ -23,8 +23,21 @@ struct SearchBar: UIViewRepresentable {
             self.onTextChanged = onTextChanged
         }
         
+        // Show cancel button when the user begins editing the search text
+        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+            searchBar.showsCancelButton = true
+        }
+        
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             text = searchText
+            onTextChanged(text)
+        }
+        
+        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            text = ""
+            searchBar.showsCancelButton = false
+            searchBar.endEditing(true)
+            // send back empty string text to search view, trigger ```self.model.searchResults.removeAll()```
             onTextChanged(text)
         }
     }
@@ -39,6 +52,7 @@ struct SearchBar: UIViewRepresentable {
         searchBar.placeholder = "Search TMDB"
         searchBar.searchBarStyle = .minimal
         searchBar.autocapitalizationType = .none
+        searchBar.showsCancelButton = true
         return searchBar
     }
     
