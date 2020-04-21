@@ -25,6 +25,16 @@ struct ProductionCompany: Codable {
     let name: String
 }
 
+//struct Language: Codable {
+//    let isoId: Int
+//    let name: String
+//
+//    enum CodingKeys: String, CodingKey {
+//        case isoId = "iso_639_1"
+//        case name
+//    }
+//}
+
 
 struct Movie: Codable {
  
@@ -45,6 +55,7 @@ struct Movie: Codable {
     let productionCompanies: [ProductionCompany]?
     // for movie list view
     let genreIds: [Int]?
+//    let spokenLanguages: [Language]?
 
     
     static var `default`: Movie {

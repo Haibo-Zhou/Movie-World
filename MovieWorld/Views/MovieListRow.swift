@@ -18,6 +18,7 @@ struct MovieListRow: View {
             VStack(alignment: .leading, spacing: 6) {
                 MovieTitle(movie: movie)
                 Text("Stars Stars Stars")
+                // Text("Launuage: \(movie.spokenLanguage)")
                 MovieCategory(movie: movie)
                 
             }

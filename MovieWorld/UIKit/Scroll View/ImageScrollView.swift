@@ -13,18 +13,19 @@ struct ImageScrollView<Content: View>: UIViewControllerRepresentable {
     var hideScrollIndicators: Bool = false
 
     init(hideScrollIndicators: Bool, @ViewBuilder content: @escaping () -> Content) {
-      self.content = content
-      self.hideScrollIndicators = hideScrollIndicators
+        self.content = content
+        self.hideScrollIndicators = hideScrollIndicators
     }
 
     func makeUIViewController(context: Context) -> ScrollViewController<Content> {
-      let vc = ScrollViewController(rootView: self.content())
-      vc.hideScrollIndicators = hideScrollIndicators
-      return vc
+        let vc = ScrollViewController(rootView: self.content())
+        vc.hideScrollIndicators = hideScrollIndicators
+
+        return vc
     }
 
     func updateUIViewController(_ viewController: ScrollViewController<Content>, context: Context) {
-      viewController.hostingController.rootView = self.content()
+        viewController.hostingController.rootView = self.content()
     }
     
     

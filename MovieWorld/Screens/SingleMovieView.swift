@@ -128,7 +128,7 @@ struct CastList: View {
 private struct ImageList: View {
     var images: [ImageViewModel]
     @State private var showSheet = false
-    @State private var selectedImage = ImageViewModel.default
+    @State private var selectedIdx = 0
 
     var body: some View {
 
@@ -137,24 +137,27 @@ private struct ImageList: View {
                 .font(.headline)
             ScrollView(.horizontal) {
                 HStack(alignment: .top, spacing: 6) {
-                    ForEach(images, id: \.self) { image in
-                        KFImage(source: .network(image.fileURL))
+                    ForEach(0..<images.count, id: \.self) { i in
+                        KFImage(source: .network(self.images[i].fileURL))
                             .resizable()
                             .frame(width: 200)
                             .aspectRatio(1.77, contentMode: .fit)
                             .onTapGesture {
-                                self.selectedImage = image
+                                self.selectedIdx = i
                                 self.showSheet.toggle()
                         }
                     }
                 }.sheet(isPresented: $showSheet) {
-                    PresentedImageList(images: self.images)
+                    // PresentedImageList(images: self.images)
+                    PageView(self.images.map { PresentedImageView(image: $0) }, selectedIdx: self.selectedIdx)
                 }
             }.frame(height: 120)
         }
         .padding(.horizontal).padding(.bottom)
     }
 }
+
+
 
 private struct PresentedImageList: View {
     var images: [ImageViewModel]
@@ -174,7 +177,8 @@ private struct PresentedImageList: View {
                         .frame(width: gr.size.width, alignment: .center)
                     }
                 }
-            }.background(Color.black)
+            }
+            .background(Color.black)
         }
         
     }
@@ -185,6 +189,9 @@ private struct PresentedImageView: View {
     
     var body: some View {
         KFImage(source: .network(image.fileURL))
+        .resizable()
+        //.frame(width: gr.size.width - 6, alignment: .center)
+        .aspectRatio(1.77, contentMode: .fit)
     }
 }
 

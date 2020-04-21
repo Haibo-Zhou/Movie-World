@@ -20,6 +20,7 @@ class ScrollViewController<Content: View>: UIViewController, UIScrollViewDelegat
         view.bounces = false
         view.backgroundColor = .clear
         view.isPagingEnabled = true
+//        view.contentOffset = CGPointMake(view.frame.size.width * self.selectedObject.number, view.frame.origin.y);
         return view
     }()
 
