@@ -148,39 +148,11 @@ private struct ImageList: View {
                         }
                     }
                 }.sheet(isPresented: $showSheet) {
-                    // PresentedImageList(images: self.images)
                     PageView(self.images.map { PresentedImageView(image: $0) }, selectedIdx: self.selectedIdx)
                 }
             }.frame(height: 120)
         }
         .padding(.horizontal).padding(.bottom)
-    }
-}
-
-
-
-private struct PresentedImageList: View {
-    var images: [ImageViewModel]
-    
-    var body: some View {
-        
-        GeometryReader { gr in
-            ImageScrollView(hideScrollIndicators: false) {
-                HStack(alignment: .top, spacing: 0) {
-                    ForEach(self.images, id: \.self) { image in
-                        VStack {
-                            KFImage(source: .network(image.fileURL))
-                            .resizable()
-                            .frame(width: gr.size.width - 6, alignment: .center)
-                            .aspectRatio(1.77, contentMode: .fit)
-                        }
-                        .frame(width: gr.size.width, alignment: .center)
-                    }
-                }
-            }
-            .background(Color.black)
-        }
-        
     }
 }
 

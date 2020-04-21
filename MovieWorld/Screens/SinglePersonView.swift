@@ -106,7 +106,8 @@ private struct AttendedMovieList: View {
 private struct PersonImageList: View {
     var images: [PersonImageViewModel]
     @State private var showSheet = false
-    @State private var selectedImage = PersonImageViewModel.default
+//    @State private var selectedImage = PersonImageViewModel.default
+    @State private var selectedIdx = 0
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -114,19 +115,20 @@ private struct PersonImageList: View {
                 .font(.headline)
             ScrollView(.horizontal) {
                 HStack(alignment: .top, spacing: 6) {
-                    ForEach(images, id: \.self) { image in
-                        KFImage(source: .network(image.fileURL))
+                    ForEach(0..<images.count, id: \.self) { i in
+                        KFImage(source: .network(self.images[i].fileURL))
                         .resizable()
                         .frame(width: 100, height: 150)
                         .aspectRatio(2/3, contentMode: .fit)
                             .onTapGesture {
-                                self.selectedImage = image
+                                self.selectedIdx = i
                                 self.showSheet.toggle()
                         }
                     }
                 }
                 .sheet(isPresented: $showSheet) {
-                    PresentedImageView(image: self.selectedImage)
+                    PageView(self.images.map { PresentedImageView(image: $0) }, selectedIdx: self.selectedIdx)
+                    // PresentedImageView(image: self.selectedImage)
                 }
             }.frame(height: 150)
         }
@@ -152,6 +154,7 @@ private struct PresentedImageView: View {
                         self.scale = 1.0
                     }
                 }
+                // For double fingers zoom in/out
             .gesture(MagnificationGesture(minimumScaleDelta: 0.1).onChanged { value in
                 self.scale = value.magnitude
             }.onEnded { val in
