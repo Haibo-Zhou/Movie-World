@@ -54,7 +54,7 @@ struct CrewList: View {
     var body: some View {
 
         VStack(alignment: .leading) {
-            Text("Director")
+            Text("DirectorSectionTitle")
                 .font(.headline)
             ScrollView(.horizontal) {
                 HStack(alignment: .top, spacing: 6) {
