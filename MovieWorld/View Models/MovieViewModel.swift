@@ -125,8 +125,9 @@ struct MovieViewModel: Identifiable, DummyBundle, Hashable {
         if runtime == 0 {
             return "00h:00min"
         }
-           let hour = runtime / 60
-           let min = runtime % 60
-           return "\(hour)h : \(min)min"
+
+        let hour = runtime / 60
+        let min = runtime % 60
+        return "\(hour)h : \(min)min"
        }
 }

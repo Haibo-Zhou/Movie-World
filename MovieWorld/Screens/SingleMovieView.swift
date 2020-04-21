@@ -21,7 +21,7 @@ struct SingleMovieView: View {
                 MovieDetailView(movie: self.model.movie)
 
                 if model.movieDetailBundle.isEmpty {
-                    Text("Loading")
+                    LoadingView().frame(width: 50, height: 50)
                 }
                 else {
                     VStack(alignment: .leading, spacing: 12) {
@@ -160,10 +160,14 @@ private struct PresentedImageView: View {
     var image: ImageViewModel
     
     var body: some View {
-        KFImage(source: .network(image.fileURL))
-        .resizable()
-        //.frame(width: gr.size.width - 6, alignment: .center)
-        .aspectRatio(1.77, contentMode: .fit)
+        ZStack {
+            Color.black.edgesIgnoringSafeArea(.all)
+            KFImage(source: .network(image.fileURL))
+            .resizable()
+            //.frame(width: gr.size.width - 6, alignment: .center)
+            .aspectRatio(1.77, contentMode: .fit)
+        }
+        
     }
 }
 

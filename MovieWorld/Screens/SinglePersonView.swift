@@ -22,7 +22,7 @@ struct SinglePersonView: View {
                 PersonDetailView(person: model.person)
                 
                 if model.personInfoBundle.isEmpty {
-                    Text("Loading")
+                    LoadingView().frame(width: 50, height: 50)
                 } else {
                     VStack(alignment: .leading, spacing: 12) {
                         if isDirector {
@@ -106,7 +106,6 @@ private struct AttendedMovieList: View {
 private struct PersonImageList: View {
     var images: [PersonImageViewModel]
     @State private var showSheet = false
-//    @State private var selectedImage = PersonImageViewModel.default
     @State private var selectedIdx = 0
     
     var body: some View {
@@ -128,7 +127,6 @@ private struct PersonImageList: View {
                 }
                 .sheet(isPresented: $showSheet) {
                     PageView(self.images.map { PresentedImageView(image: $0) }, selectedIdx: self.selectedIdx)
-                    // PresentedImageView(image: self.selectedImage)
                 }
             }.frame(height: 150)
         }

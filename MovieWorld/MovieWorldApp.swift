@@ -20,7 +20,7 @@ struct MovieWorldAppView: View {
         TabView {
             NavigationView {
                 if model.sectionMoviesBundle.isEmpty {
-                    Text("Loading...")
+                    LoadingView().frame(width: 50, height: 50)
                 } else {
                     createCollectionView()
                         .sheet(isPresented: $showSheet) {
