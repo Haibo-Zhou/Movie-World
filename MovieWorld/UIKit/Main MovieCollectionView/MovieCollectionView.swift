@@ -92,7 +92,8 @@ struct MovieCollectionView: UIViewRepresentable {
                 guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: HeaderView.reuseId, for: indexPath) as? HeaderView else {
                     return UICollectionReusableView()
                 }
-                header.name.text = HomeSection.allCases[indexPath.section].rawValue
+                header.name.text = NSLocalizedString(HomeSection.allCases[indexPath.section].rawValue, comment: "")
+                header.name.font = UIFontMetrics.default.scaledFont(for: .systemFont(ofSize: 20, weight: .bold))
                 header.onSeeAllClicked = { [weak self] in
                     print("%%% Click %$$$$")
                     self?.parent.seeAllforSection(HomeSection.allCases[indexPath.section])

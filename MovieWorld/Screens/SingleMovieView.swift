@@ -56,6 +56,7 @@ struct CrewList: View {
         VStack(alignment: .leading) {
             Text("DirectorSectionTitle")
                 .font(.headline)
+            
             ScrollView(.horizontal) {
                 HStack(alignment: .top, spacing: 6) {
                     ForEach(crews, id: \.self) { crew in
@@ -93,7 +94,7 @@ struct CastList: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            Text("Cast")
+            Text("CastSectionTitle")
                 .font(.headline)
             ScrollView(.horizontal) {
                 HStack(alignment: .top, spacing: 6) {
@@ -133,7 +134,7 @@ private struct ImageList: View {
     var body: some View {
 
         VStack(alignment: .leading) {
-            Text("Images")
+            Text("ImagesSectionTitle")
                 .font(.headline)
             ScrollView(.horizontal) {
                 HStack(alignment: .top, spacing: 6) {

@@ -25,7 +25,7 @@ class HeaderView: UICollectionReusableView {
     
     lazy var seeAll: UIButton = {
         let button  = UIButton(type: .system)
-        button.setTitle("See all", for: .normal)
+        button.setTitle(NSLocalizedString("See all", comment: ""), for: .normal)
         button.setTitleColor(UIColor(named: "darkPurple"), for: .normal)
         button.addTarget(self, action: #selector(seeAllMovies), for: .touchUpInside)
         button.backgroundColor = .clear
@@ -49,7 +49,7 @@ class HeaderView: UICollectionReusableView {
             HStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             HStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             HStack.topAnchor.constraint(equalTo: self.topAnchor),
-            HStack.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            HStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
         ])
     }
     

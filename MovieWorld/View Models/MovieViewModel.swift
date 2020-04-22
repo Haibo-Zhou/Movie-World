@@ -10,10 +10,10 @@ import SwiftUI
 
 
 enum HomeSection: String, CaseIterable {
-    case NowPlaying = "Now playing"
+    case NowPlaying = "Now Playing"
     case Popular
     case Upcoming
-    case TopActor = "Hot Actors"
+    case TopActor
 }
 
 enum MovieDetailSection: String, CaseIterable {
@@ -48,8 +48,8 @@ struct MovieViewModel: Identifiable, DummyBundle, Hashable {
     var allGenres: [Int: String]
 
     private let baseImageUrl = "https://image.tmdb.org/t/p/"
-    private let backdropSize = "w780"
-    private let posterSize = "w342"
+    private let backdropSize = "w1280"
+    private let posterSize = "w500"
     
     static  var `default` : MovieViewModel {
         get{

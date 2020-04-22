@@ -69,7 +69,7 @@ struct MovieWorldAppView: View {
                                     self.showSheet.toggle()
                                     self.selectedIndexPath = nil
         } )
-                .edgesIgnoringSafeArea(.all).navigationBarTitle("Movies")
+                .edgesIgnoringSafeArea(.all).navigationBarTitle("MainSectionTitle")
     }
 }
 

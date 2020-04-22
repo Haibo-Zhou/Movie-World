@@ -22,7 +22,7 @@ struct PersonViewModel: Identifiable, DummyBundle {
 
     private let baseImageUrl = "https://image.tmdb.org/t/p/"
     private let backdropSize = "w780"
-    private let posterSize = "w342"
+    private let posterSize = "w500"
     
 
     static var `default` : PersonViewModel {

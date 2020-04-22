@@ -7,4 +7,26 @@
 */
 
 
+// Main Section title
+"MainSectionTitle" = "Movie Fans";
+"See all" = "See all";
+
+// MARK: For Home section
+"Now Playing" = "Now Playing";
+"Popular" = "Popular";
+"Upcoming" = "Upcoming";
+"TopActor" = "Hot Actor";
+
+// MARK: For SingleMovieView
 "DirectorSectionTitle" = "Director";
+"CastSectionTitle" = "Cast";
+"ImagesSectionTitle" = "Images";
+
+// For Tab Bar
+"Home" = "Home";
+"Search" = "Search";
+
+// For Search Bar
+"Search TMDB" = "Search TMDB";
+
+

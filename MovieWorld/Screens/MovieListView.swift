@@ -32,7 +32,7 @@ struct MovieListView: View {
                             }
                     }
                 }
-            }.navigationBarTitle(section.rawValue)
+            }.navigationBarTitle(NSLocalizedString(section.rawValue, comment: ""))
                 .sheet(isPresented: $showSheet) {
                     SingleMovieView(movieId: self.selectedId)
             }

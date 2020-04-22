@@ -6,5 +6,24 @@
   Copyright © 2020 Haibo Family. All rights reserved.
 */
 
+// Main Section title
+"MainSectionTitle" = "电影迷";
+"See all" = "查看全部";
 
+// MARK: Home Sections
+"Now Playing" = "上映中";
+"Popular" = "时下流行";
+"Upcoming" = "即将到来";
+"TopActor" = "最红明星";
+
+// MARK: For SingleMovieView
 "DirectorSectionTitle" = "导演";
+"CastSectionTitle" = "演员";
+"ImagesSectionTitle" = "图片";
+
+// For Tab Bar
+"Home" = "主页";
+"Search" = "搜索";
+
+// For Search Bar
+"Search TMDB" = "请输入电影名";

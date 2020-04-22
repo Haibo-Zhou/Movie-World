@@ -32,7 +32,7 @@ struct ActorListView: View {
                             }
                     }
                 }
-            }.navigationBarTitle(section.rawValue)
+            }.navigationBarTitle(NSLocalizedString(section.rawValue, comment: ""))
                 .sheet(isPresented: $showSheet) {
                     SinglePersonView(personId: self.selectedId)
             }
