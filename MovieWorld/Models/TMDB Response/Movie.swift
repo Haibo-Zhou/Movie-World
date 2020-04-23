@@ -25,17 +25,6 @@ struct ProductionCompany: Codable {
     let name: String
 }
 
-//struct Language: Codable {
-//    let isoId: Int
-//    let name: String
-//
-//    enum CodingKeys: String, CodingKey {
-//        case isoId = "iso_639_1"
-//        case name
-//    }
-//}
-
-
 struct Movie: Codable {
  
     let id:Int?
@@ -53,16 +42,34 @@ struct Movie: Codable {
     let runtime,revenue:Int?
     let budget: Int?
     let productionCompanies: [ProductionCompany]?
+    let translations: Translation?
+    
     // for movie list view
     let genreIds: [Int]?
-//    let spokenLanguages: [Language]?
 
     
-    static var `default`: Movie {
-        Movie(id: 0, title: "", releaseDate: "", overview: "", popularity: 0, genres: [], voteAverage: 0, originalLanguage: "", posterPath: "", backdropPath: "", voteCount: 0, status: "", runtime: 0, revenue: 0, budget: 0, productionCompanies: [],
-        genreIds: [])
-    }
+//    static var `default`: Movie {
+//        Movie(id: 0, title: "", releaseDate: "", overview: "", popularity: 0, genres: [], voteAverage: 0, originalLanguage: "", posterPath: "", backdropPath: "", voteCount: 0, status: "", runtime: 0, revenue: 0, budget: 0, productionCompanies: [], translations: , genreIds: [])
+//    }
     
 }
 
+struct Translation: Codable {
+    let translations: [TranslationItem]
+    
+    static var `default`: Translation {
+        Translation(translations: [])
+    }
+}
+
+struct TranslationItem: Codable {
+    let iso31661: String
+    let name: String
+    let data: TranslationItemData
+}
+
+struct TranslationItemData: Codable {
+    let overview: String
+    let title: String
+}
 

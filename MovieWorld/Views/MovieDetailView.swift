@@ -43,7 +43,7 @@ struct MovieDetailView: View {
     }
     
     fileprivate func createTitle() -> some View {
-        return Text(self.movie.title)
+        return Text(self.movie.titleCn)
             .font(.system(size: 35, weight: .black, design: .rounded))
             .layoutPriority(1) // let title has the hightest priority to take the space firstly
             .multilineTextAlignment(.leading)

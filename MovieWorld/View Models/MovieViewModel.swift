@@ -31,21 +31,24 @@ enum PersonInfoSection: String, CaseIterable {
 
 struct MovieViewModel: Identifiable, DummyBundle, Hashable {
     
-    var id:Int
-    var title:String
-    var releaseDate:String
-    var overview:String
-    var popularity:CGFloat
-    var genres:[String]
+    var id: Int
+    var title: String
+    var releaseDate: String
+    var overview: String
+    var popularity: CGFloat
+    var genres: [String]
     var voteAverage: Double = 0
     var originalLanguage: String
-    var posterUrl:URL
-    var backdropUrl:URL
+    var posterUrl: URL
+    var backdropUrl: URL
     var runtime: String
     var productionCompany: String
     // for movie list view
     var genreNames: String = ""
     var allGenres: [Int: String]
+    // for localization of CN language
+    var overviewCn: String
+    var titleCn: String
 
     private let baseImageUrl = "https://image.tmdb.org/t/p/"
     private let backdropSize = "w1280"
@@ -53,7 +56,7 @@ struct MovieViewModel: Identifiable, DummyBundle, Hashable {
     
     static  var `default` : MovieViewModel {
         get{
-            MovieViewModel(movie: Movie(id: 0, title: "", releaseDate: "", overview: "", popularity: 0, genres: [], voteAverage: 0, originalLanguage: "", posterPath: "", backdropPath: "", voteCount: 0, status: "", runtime: 0, revenue: 0, budget: 0, productionCompanies: [], genreIds: []) )
+            MovieViewModel(movie: Movie(id: 0, title: "", releaseDate: "", overview: "", popularity: 0, genres: [], voteAverage: 0, originalLanguage: "", posterPath: "", backdropPath: "", voteCount: 0, status: "", runtime: 0, revenue: 0, budget: 0, productionCompanies: [], translations: Translation.default, genreIds: []) )
         }
     }
     
@@ -69,8 +72,10 @@ struct MovieViewModel: Identifiable, DummyBundle, Hashable {
         self.posterUrl = MovieViewModel.posterImageUrl(with: movie.posterPath ?? "", baseUrl: baseImageUrl, size: posterSize)
         self.runtime = MovieViewModel.formatTime(from: movie.runtime ?? 0)
         self.productionCompany = MovieViewModel.productionCompany(movie: movie)
+        self.overviewCn = movie.translations?.translations.filter{$0.iso31661 == "CN"}.first?.data.overview ?? ""
+        self.titleCn = movie.translations?.translations.filter{$0.iso31661 == "CN"}.first?.data.title ?? ""
         
-        // for movie list view
+        // A full case list for genres in movie list view
         self.allGenres = [28:"Action", 12: "Adventure", 16: "Animation", 35: "Comedy",
         80: "Crime", 99: "Documentary", 18: "Drama", 10751: "Family",
         14: "Fantasy", 36: "History", 27: "Horror", 10402: "Music",

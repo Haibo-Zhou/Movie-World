@@ -47,7 +47,6 @@ struct WebService {
                 }
                 return output.data
             }
-            
             .decode(type: T.self, decoder: decoder)
             .eraseToAnyPublisher()
     }
