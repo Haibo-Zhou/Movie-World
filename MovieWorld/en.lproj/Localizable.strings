@@ -21,6 +21,7 @@
 "DirectorSectionTitle" = "Director";
 "CastSectionTitle" = "Cast";
 "ImagesSectionTitle" = "Images";
+"You Might Also Like" = "You Might Also Like";
 
 // For Tab Bar
 "Home" = "Home";
@@ -28,5 +29,10 @@
 
 // For Search Bar
 "Search TMDB" = "Search TMDB";
+
+// MARK: For SinglePersonView
+"Known For" = "Known For";
+
+
 
 

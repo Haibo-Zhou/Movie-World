@@ -61,7 +61,7 @@ struct TMDBClient {
                 return TMDBClient.Endpoints.baseUrl + "/movie/\(movieId)/recommendations" + Endpoints.apiKeyParam
                 
             case .personDetail(let personId):
-                return TMDBClient.Endpoints.baseUrl + "/person/\(personId)" + Endpoints.apiKeyParam
+                return TMDBClient.Endpoints.baseUrl + "/person/\(personId)" + Endpoints.apiKeyParam + "&language=en-US&page=1" + "&append_to_response=translations"
                 
             case .movieCredits(let personId):
                 return TMDBClient.Endpoints.baseUrl + "/person/\(personId)/movie_credits" + Endpoints.apiKeyParam

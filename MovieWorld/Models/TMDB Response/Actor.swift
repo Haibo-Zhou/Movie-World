@@ -26,6 +26,9 @@ struct Actor: Codable {
     let biography: String?
     let placeOfBirth: String?
     let imdbId: String?
+    
+    // for localization
+    let translations: Translation?
 }
 
 // MARK: Used for two objects with media type = (Movie or TV)

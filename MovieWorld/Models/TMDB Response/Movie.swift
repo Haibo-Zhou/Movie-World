@@ -64,12 +64,13 @@ struct Translation: Codable {
 
 struct TranslationItem: Codable {
     let iso31661: String
-    let name: String
+    let name: String?
     let data: TranslationItemData
 }
 
 struct TranslationItemData: Codable {
-    let overview: String
-    let title: String
+    let overview: String?
+    let title: String?
+    let biography: String?
 }
 

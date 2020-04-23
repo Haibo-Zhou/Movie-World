@@ -13,12 +13,14 @@ struct PersonViewModel: Identifiable, DummyBundle {
     var profileUrl: URL
     var adult: Bool
     var id: Int
-    let name: String
+    var name: String
     var popularity: CGFloat
     var knownFor: String
     var biography: String
     var placeOfBirth: String
     var imdbId: String
+    var nameCn: String
+    var biographyCn: String
 
     private let baseImageUrl = "https://image.tmdb.org/t/p/"
     private let backdropSize = "w780"
@@ -28,7 +30,7 @@ struct PersonViewModel: Identifiable, DummyBundle {
     static var `default` : PersonViewModel {
         get {
             PersonViewModel(actor: Actor(profilePath: "", adult: false, id: 0, name: "", popularity: 0, knownFor: [],
-                                         biography: "", placeOfBirth: "", imdbId: "") )
+                                         biography: "", placeOfBirth: "", imdbId: "", translations: Translation.default) )
         }
     }
 
@@ -43,6 +45,8 @@ struct PersonViewModel: Identifiable, DummyBundle {
         self.biography = actor.biography ?? ""
         self.placeOfBirth = actor.placeOfBirth ?? ""
         self.imdbId = actor.imdbId ?? ""
+        self.nameCn = actor.translations?.translations.filter{$0.iso31661 == "CN"}.first?.name ?? ""
+        self.biographyCn = actor.translations?.translations.filter{$0.iso31661 == "CN"}.first?.data.biography ?? ""
     }
 
 

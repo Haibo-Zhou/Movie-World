@@ -47,14 +47,40 @@ private struct PersonDetailView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
+//            createPersonName()
             Text(person.name) // person Name
                 .font(.system(size: 35, weight: .black, design: .rounded))
-            Text(person.biography) // person bio
-                .font(.body)
+            createPersonBio()
+//            Text(person.biography) // person bio
+//                .font(.body)
         }.padding(.horizontal).padding(.bottom)
-        
     }
     
+//    private func createPersonName() -> some View {
+//        if let currentDeviceLanguage = Bundle.main.preferredLocalizations.first {
+//            if currentDeviceLanguage == "zh-Hans" {
+//                if self.person.nameCn != "" {
+//                    return Text(self.person.nameCn)
+//                    .font(.system(size: 35, weight: .black, design: .rounded))
+//                }
+//            }
+//        }
+//        return Text(self.person.name)
+//            .font(.system(size: 35, weight: .black, design: .rounded))
+//    }
+    
+    private func createPersonBio() -> some View {
+        if let currentDeviceLanguage = Bundle.main.preferredLocalizations.first {
+            if currentDeviceLanguage == "zh-Hans" {
+                if self.person.biographyCn != "" {
+                    return Text(self.person.biographyCn)
+                    .font(.body)
+                }
+            }
+        }
+        return Text(self.person.biography)
+            .font(.body)
+    }
 }
 
 private struct PosterImage: View {
@@ -110,7 +136,7 @@ private struct PersonImageList: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Images")
+            Text("ImagesSectionTitle")
                 .font(.headline)
             ScrollView(.horizontal) {
                 HStack(alignment: .top, spacing: 6) {

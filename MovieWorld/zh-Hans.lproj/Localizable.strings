@@ -20,6 +20,7 @@
 "DirectorSectionTitle" = "导演";
 "CastSectionTitle" = "演员";
 "ImagesSectionTitle" = "图片";
+"You Might Also Like" = "猜你喜欢";
 
 // For Tab Bar
 "Home" = "主页";
@@ -27,3 +28,6 @@
 
 // For Search Bar
 "Search TMDB" = "请输入电影名";
+
+// MARK: For SinglePersonView
+"Known For" = "代表作品";

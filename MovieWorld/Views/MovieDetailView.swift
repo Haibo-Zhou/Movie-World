@@ -43,7 +43,18 @@ struct MovieDetailView: View {
     }
     
     fileprivate func createTitle() -> some View {
-        return Text(self.movie.titleCn)
+        if let currentDeviceLanguage = Bundle.main.preferredLocalizations.first {
+            if currentDeviceLanguage == "zh-Hans" {
+                if self.movie.titleCn != "" {
+                    return Text(self.movie.titleCn)
+                    .font(.system(size: 35, weight: .black, design: .rounded))
+                    .layoutPriority(1) // let title has the hightest priority to take the space firstly
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(nil)
+                }
+            }
+        }
+        return Text(self.movie.title)
             .font(.system(size: 35, weight: .black, design: .rounded))
             .layoutPriority(1) // let title has the hightest priority to take the space firstly
             .multilineTextAlignment(.leading)
@@ -66,6 +77,16 @@ struct MovieDetailView: View {
     }
     
     fileprivate func createDescription() -> some View {
+        if let currentDeviceLanguage = Bundle.main.preferredLocalizations.first {
+            print("Language: \(currentDeviceLanguage)")
+            if currentDeviceLanguage == "zh-Hans" {
+                if self.movie.overviewCn != "" { // return en text if cn text is not avaiable
+                    return Text(self.movie.overviewCn)
+                    .lineLimit(nil)
+                    .font(.body)
+                }
+            }
+        }
         return Text(self.movie.overview)
             .lineLimit(nil)
             .font(.body)

@@ -179,7 +179,7 @@ struct RecMovieList: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("\(MovieDetailSection.Recomm.rawValue)")
+            Text("\(NSLocalizedString(MovieDetailSection.Recomm.rawValue, comment: ""))")
                 .font(.headline)
             ScrollView(.horizontal) {
                 HStack(alignment: .top, spacing: 10) {
