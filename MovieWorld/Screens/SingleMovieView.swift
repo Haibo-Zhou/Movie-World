@@ -21,9 +21,8 @@ struct SingleMovieView: View {
                 MovieDetailView(movie: self.model.movie)
 
                 if model.movieDetailBundle.isEmpty {
-                    LoadingView().frame(width: 50, height: 50)
-                }
-                else {
+                    LoadingView().frame(width: 30, height: 30)
+                } else {
                     VStack(alignment: .leading, spacing: 12) {
                         CrewList(crews: (model.movieDetailBundle[.Crew] as! [CrewViewModel]).filter {$0.job == "Director"} )
                         CastList(casts: model.movieDetailBundle[.Cast] as! [CastViewModel])
