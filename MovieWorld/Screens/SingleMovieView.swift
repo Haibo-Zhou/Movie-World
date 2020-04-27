@@ -148,7 +148,14 @@ private struct ImageList: View {
                         }
                     }
                 }.sheet(isPresented: $showSheet) {
-                    PageView(self.images.map { PresentedImageView(image: $0) }, selectedIdx: self.selectedIdx)
+                    if self.images.count == 1 {
+                        KFImage(source: .network(self.images[0].fileURL))
+                        .resizable()
+//                        .frame(width: 200)
+                        .aspectRatio(1.77, contentMode: .fit)
+                    } else {
+                        PageView(self.images.map { PresentedImageView(image: $0) }, selectedIdx: self.selectedIdx)
+                    }
                 }
             }.frame(height: 120)
         }

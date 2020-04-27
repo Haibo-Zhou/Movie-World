@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let APIKeys = try? PropertyListDecoder().decode(APIKeys.self, from: data)
         {
             TMDBClient.apiKey = APIKeys.APIKey
-            print("TMDB.apiKey: \(TMDBClient.apiKey)")
+            // print("TMDB.apiKey: \(TMDBClient.apiKey)")
         }
         
         // Create the SwiftUI view that provides the window contents.

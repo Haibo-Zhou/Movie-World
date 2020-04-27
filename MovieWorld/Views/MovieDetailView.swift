@@ -83,7 +83,7 @@ struct MovieDetailView: View {
     
     fileprivate func createDescription() -> some View {
         if let currentDeviceLanguage = Bundle.main.preferredLocalizations.first {
-            print("Language: \(currentDeviceLanguage)")
+            // print("Language: \(currentDeviceLanguage)")
             if currentDeviceLanguage == "zh-Hans" {
                 if self.movie.overviewCn != "" { // return en text if cn text is not avaiable
                     return Text(self.movie.overviewCn)
