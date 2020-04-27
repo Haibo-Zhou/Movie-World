@@ -17,5 +17,6 @@ extension Color {
     static let clearPurple = Color("clearPurple")
     static let textColor = Color("textColor")
     static let background = Color("background")
+    static let primaryBlue = Color("primaryBlue")
     // static let barcodeBG = Color("barcodeBG")
 }

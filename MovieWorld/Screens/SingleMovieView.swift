@@ -56,7 +56,7 @@ struct CrewList: View {
             Text("DirectorSectionTitle")
                 .font(.headline)
             
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 6) {
                     ForEach(crews, id: \.self) { crew in
                         VStack(alignment: .leading) {
@@ -95,7 +95,7 @@ struct CastList: View {
         VStack(alignment: .leading) {
             Text("CastSectionTitle")
                 .font(.headline)
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 6) {
                     ForEach(casts, id: \.self) { cast in
                         VStack(alignment: .leading) {
@@ -135,7 +135,7 @@ private struct ImageList: View {
         VStack(alignment: .leading) {
             Text("ImagesSectionTitle")
                 .font(.headline)
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 6) {
                     ForEach(0..<images.count, id: \.self) { i in
                         KFImage(source: .network(self.images[i].fileURL))
@@ -180,7 +180,7 @@ struct RecMovieList: View {
         VStack(alignment: .leading) {
             Text("\(NSLocalizedString(MovieDetailSection.Recomm.rawValue, comment: ""))")
                 .font(.headline)
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 10) {
                     ForEach(movies) { movie in
                         VStack(alignment: .leading) {

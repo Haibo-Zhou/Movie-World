@@ -15,7 +15,7 @@ struct MovieDetailView: View {
     var body: some View {
         VStack(alignment: .leading) {
             createTitle()
-            RatingView(value: movie.voteAverage)
+            RatingView(value: movie.voteAverage).padding(.bottom)
             createGenreList()
             HStack {
                 Text(self.movie.releaseDate).foregroundColor(.gray)
@@ -32,12 +32,17 @@ struct MovieDetailView: View {
         
         var body: some View {
             HStack {
-                Image(systemName: "star.circle")
-                    .font(.system(.largeTitle))
-                    .foregroundColor(.pink)
-                Text(String(value))
-                    .font(.system(.largeTitle))
-                    .foregroundColor(.pink)
+                VStack(alignment: .leading, spacing: 10) {
+                    Text(String(value))
+                    .font(.system(size: 35, weight: .black, design: .rounded))
+                    .fontWeight(.medium)
+                    .foregroundColor(.primary)
+                    
+                    StarRatingView(ratingScore: value, usedInMovieList: false)
+                }
+                
+                Spacer()
+                Image("tmdb_logo")
             }
         }
     }

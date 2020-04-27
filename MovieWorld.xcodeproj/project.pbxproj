@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1311591B2457007300A1173E /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1311591A2457007300A1173E /* StarRatingView.swift */; };
 		133BCF8424165A81006F5C6D /* PopularActorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133BCF8324165A81006F5C6D /* PopularActorCell.swift */; };
 		133BCF8624165B53006F5C6D /* ActorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133BCF8524165B53006F5C6D /* ActorViewModel.swift */; };
 		133BCF8A24174A5A006F5C6D /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133BCF8924174A5A006F5C6D /* MovieListViewModel.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1311591A2457007300A1173E /* StarRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		133BCF8324165A81006F5C6D /* PopularActorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularActorCell.swift; sourceTree = "<group>"; };
 		133BCF8524165B53006F5C6D /* ActorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorViewModel.swift; sourceTree = "<group>"; };
 		133BCF8924174A5A006F5C6D /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				13A92A7F24441A7900E74A8A /* MovieListRow.swift */,
 				13A1927F2446B45400738EC9 /* ActorListRow.swift */,
 				13A92A8124441AB100E74A8A /* LineRatingView.swift */,
+				1311591A2457007300A1173E /* StarRatingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				1369876C24236A16008A7E49 /* CastCell.swift in Sources */,
 				1369876E24236A56008A7E49 /* ImageCell.swift in Sources */,
 				138655AE2415F9BD009DC6C7 /* UpcomingCell.swift in Sources */,
+				1311591B2457007300A1173E /* StarRatingView.swift in Sources */,
 				133BCF8C24176D23006F5C6D /* MovieBundle.swift in Sources */,
 				13698766242359CD008A7E49 /* ImageViewModel.swift in Sources */,
 				1369877024236AD6008A7E49 /* RecMovieCell.swift in Sources */,
@@ -621,7 +625,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.6;
+				CURRENT_PROJECT_VERSION = 1.0.7;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieWorld/Preview Content\"";
 				DEVELOPMENT_TEAM = BV97A5VZCV;
 				ENABLE_PREVIEWS = YES;
@@ -643,7 +647,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.6;
+				CURRENT_PROJECT_VERSION = 1.0.7;
 				DEVELOPMENT_ASSET_PATHS = "\"MovieWorld/Preview Content\"";
 				DEVELOPMENT_TEAM = BV97A5VZCV;
 				ENABLE_PREVIEWS = YES;

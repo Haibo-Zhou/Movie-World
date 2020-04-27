@@ -17,13 +17,13 @@ struct MovieListRow: View {
             MovieImage(movie: movie)
             VStack(alignment: .leading, spacing: 6) {
                 MovieTitle(movie: movie)
-                Text("Stars Stars Stars")
-                // Text("Launuage: \(movie.spokenLanguage)")
+                StarRatingView(ratingScore: movie.voteAverage, usedInMovieList: true)
                 MovieCategory(movie: movie)
                 
             }
         }.padding(.vertical)
     }
+   
     
     // MARK: Sub-Component
     struct MovieImage: View {
