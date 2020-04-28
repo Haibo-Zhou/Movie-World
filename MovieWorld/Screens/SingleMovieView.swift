@@ -8,6 +8,7 @@
 
 import SwiftUI
 import KingfisherSwiftUI
+import GoogleMobileAds
 
 struct SingleMovieView: View {
 
@@ -24,6 +25,10 @@ struct SingleMovieView: View {
                     LoadingView().frame(width: 30, height: 30)
                 } else {
                     VStack(alignment: .leading, spacing: 12) {
+                        // For Ads
+                        BannerView()
+                            .frame(width: kGADAdSizeBanner.size.width, height: kGADAdSizeBanner.size.height)
+                        
                         CrewList(crews: (model.movieDetailBundle[.Crew] as! [CrewViewModel]).filter {$0.job == "Director"} )
                         CastList(casts: model.movieDetailBundle[.Cast] as! [CastViewModel])
                         ImageList(images: model.movieDetailBundle[.Images] as! [ImageViewModel])

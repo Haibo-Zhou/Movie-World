@@ -24,7 +24,6 @@ struct MovieDetailView: View {
             }.padding(.vertical)
             createDescription().padding(.vertical)
         }.padding(.horizontal).padding(.bottom, 20)
-        
     }
     
     struct RatingView: View {
