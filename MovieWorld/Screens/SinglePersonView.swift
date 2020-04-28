@@ -8,6 +8,7 @@
 
 import SwiftUI
 import KingfisherSwiftUI
+import GoogleMobileAds
 
 struct SinglePersonView: View {
     
@@ -20,6 +21,10 @@ struct SinglePersonView: View {
             VStack(alignment: .leading) {
                 PosterImage(person: model.person)
                 PersonDetailView(person: model.person)
+                
+                // For Firebase mobile Ads
+                BannerView()
+                    .frame(width: kGADAdSizeBanner.size.width, height: kGADAdSizeBanner.size.height)
                 
                 if model.personInfoBundle.isEmpty {
                     LoadingView().frame(width: 50, height: 50)

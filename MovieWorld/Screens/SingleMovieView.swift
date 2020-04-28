@@ -20,15 +20,15 @@ struct SingleMovieView: View {
             VStack(alignment: .leading)  {
                 createPosterImage()
                 MovieDetailView(movie: self.model.movie)
+                
+                // For Firebase mobile Ads
+                BannerView()
+                    .frame(width: kGADAdSizeBanner.size.width, height: kGADAdSizeBanner.size.height)
 
                 if model.movieDetailBundle.isEmpty {
                     LoadingView().frame(width: 30, height: 30)
                 } else {
                     VStack(alignment: .leading, spacing: 12) {
-                        // For Ads
-                        BannerView()
-                            .frame(width: kGADAdSizeBanner.size.width, height: kGADAdSizeBanner.size.height)
-                        
                         CrewList(crews: (model.movieDetailBundle[.Crew] as! [CrewViewModel]).filter {$0.job == "Director"} )
                         CastList(casts: model.movieDetailBundle[.Cast] as! [CastViewModel])
                         ImageList(images: model.movieDetailBundle[.Images] as! [ImageViewModel])

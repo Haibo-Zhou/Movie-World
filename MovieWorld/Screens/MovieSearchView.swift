@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 struct MovieSearchView: View {
     @ObservedObject var model = MovieListViewModel()
@@ -40,6 +41,10 @@ struct MovieSearchView: View {
             .sheet(isPresented: $showSheet) {
                 SingleMovieView(movieId: self.selectedId)
             }
+            
+            // For Firebase mobile Ads
+            BannerView()
+                .frame(width: kGADAdSizeBanner.size.width, height: kGADAdSizeBanner.size.height)
         }
         
     }
