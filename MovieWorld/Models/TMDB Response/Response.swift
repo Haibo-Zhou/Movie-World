@@ -6,10 +6,10 @@
 //  Copyright © 2020 Haibo Family. All rights reserved.
 //
 
-import Foundation
-
-struct Response: Codable {
-    let statusMessage: String?
-    let success: Bool
-    let statusCode: Int?
-}
+//import Foundation
+//
+//struct Response: Codable {
+//    let statusMessage: String?
+//    let success: Bool
+//    let statusCode: Int?
+//}

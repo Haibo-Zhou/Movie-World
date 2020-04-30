@@ -25,6 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let APIKeys = try? PropertyListDecoder().decode(APIKeys.self, from: data)
         {
             TMDBClient.apiKey = APIKeys.APIKey
+            // Fake API Key
+//            TMDBClient.apiKey = "93fbede85aa1c5ccef9986ec04175599"
             // print("TMDB.apiKey: \(TMDBClient.apiKey)")
         }
         

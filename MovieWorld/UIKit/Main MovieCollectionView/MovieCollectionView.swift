@@ -96,7 +96,7 @@ struct MovieCollectionView: UIViewRepresentable {
                 header.name.text = NSLocalizedString(HomeSection.allCases[indexPath.section].rawValue, comment: "")
                 header.name.font = UIFontMetrics.default.scaledFont(for: .systemFont(ofSize: 20, weight: .bold))
                 header.onSeeAllClicked = { [weak self] in
-                    print("%%% Click %$$$$")
+                    // print("%%% Click %$$$$")
                     self?.parent.seeAllforSection(HomeSection.allCases[indexPath.section])
                 }
                 return header
