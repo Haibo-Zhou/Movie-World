@@ -18,5 +18,6 @@ extension Color {
     static let textColor = Color("textColor")
     static let background = Color("background")
     static let primaryBlue = Color("primaryBlue")
+    static let aboutBG = Color("about_bg")
     // static let barcodeBG = Color("barcodeBG")
 }

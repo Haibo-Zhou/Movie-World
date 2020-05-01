@@ -46,13 +46,22 @@ struct MovieWorldAppView: View {
                 Image(systemName: "house.fill")
                 Text("Home")
             }
-            
+            // 2nd Tab
             MovieSearchView()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("Search")
+                }
+            // About Page
+            AboutPageView()
+                .tabItem {
+                    Image(systemName: "info.circle")
+                    Text("About")
             }
         }.accentColor(.red)
+        
+            
+            
     }
     
     fileprivate func createCollectionView() -> some View {

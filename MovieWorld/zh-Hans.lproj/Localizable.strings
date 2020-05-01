@@ -31,3 +31,11 @@
 
 // MARK: For SinglePersonView
 "Known For" = "代表作品";
+
+// About Page
+"Welcome" = "欢迎使用电影大百科";
+"App intro" = "这个应用是使用最新的SwiftUI制作而成，当前功能并不完善，后续我会陆续添加一些像用户登陆这类功能。";
+"Notice" = "声明：";
+"TMDb attribute" = "This product uses the TMDb API but is not endorsed or certified by TMDb.";
+"Contact me" = "如有工作或app相关问题，请联系我：";
+"Email" = "chuckzhb@hotmail.com";

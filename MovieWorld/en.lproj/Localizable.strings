@@ -33,6 +33,16 @@
 // MARK: For SinglePersonView
 "Known For" = "Known For";
 
+// About Page
+"Welcome" = "Welcome to Movie Fans";
+"App intro" = "This app is created with newly announced SwiftUI, it is not the complete one, I would like put more features like user login in it later.";
+"Notice" = "NOTICE:";
+"TMDb attribute" = "This product uses the TMDb API but is not endorsed or certified by TMDb.";
+"Contact me" = "Contact me for question or jobs:";
+"Email" = "chuckzhb@hotmail.com";
+
+
+
 
 
 
