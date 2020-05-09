@@ -154,10 +154,7 @@ private struct ImageList: View {
                     }
                 }.sheet(isPresented: $showSheet) {
                     if self.images.count == 1 {
-                        KFImage(source: .network(self.images[0].fileURL))
-                        .resizable()
-//                        .frame(width: 200)
-                        .aspectRatio(1.77, contentMode: .fit)
+                        PresentedImageView(image: self.images[0])
                     } else {
                         PageView(self.images.map { PresentedImageView(image: $0) }, selectedIdx: self.selectedIdx)
                     }
@@ -171,15 +168,49 @@ private struct ImageList: View {
 private struct PresentedImageView: View {
     var image: ImageViewModel
     
+    @State private var contentMode: ContentMode = .fit
+    @State private var scaleAmount: CGFloat = 1.0
+    @State private var dragAmount: CGSize = .zero
+    @State private var offSetAmount: CGSize = .zero
+    
     var body: some View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
             KFImage(source: .network(image.fileURL))
-            .resizable()
-            //.frame(width: gr.size.width - 6, alignment: .center)
-            .aspectRatio(1.77, contentMode: .fit)
+                .resizable()
+                .aspectRatio(contentMode: contentMode)
+                .offset(dragAmount)
+                .scaleEffect(scaleAmount)
+                .onTapGesture(count: 2) { // double clicking zoom in/out
+                    withAnimation(.spring()) {
+                        (self.contentMode == .fit) ?
+                            (self.contentMode = .fill) :
+                            (self.contentMode = .fit)
+                    }
+            }
+            // For double fingers zoom in/out
+            .gesture(
+                MagnificationGesture(minimumScaleDelta: 0.05)
+                    .onChanged { self.scaleAmount = $0 }
+                    .onEnded { _ in
+                        withAnimation(.spring()) {
+                            self.scaleAmount = 1.0
+                            self.dragAmount = .zero
+                            self.offSetAmount = .zero
+                        }
+                }
+            .simultaneously(with:
+                DragGesture()
+                    .onChanged { self.dragAmount = $0.translation }
+                    .onEnded { _ in withAnimation(.spring()) {
+                        self.scaleAmount = 1.0
+                        self.dragAmount = .zero
+                        self.offSetAmount = .zero
+                        }
+                    }
+                )
+            )
         }
-        
     }
 }
 
