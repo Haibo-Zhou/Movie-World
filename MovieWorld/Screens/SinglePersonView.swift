@@ -40,9 +40,9 @@ struct SinglePersonView: View {
                 }
             }
         }.edgesIgnoringSafeArea(.top)
-        .onAppear() {
-            self.model.getPersonDetail(id: self.personId)
-            self.model.getPersonDetailBundle(id: self.personId)
+            .onAppear() {
+                self.model.getPersonDetail(id: self.personId)
+                self.model.getPersonDetailBundle(id: self.personId)
         }
     }
 }
@@ -52,34 +52,18 @@ private struct PersonDetailView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-//            createPersonName()
             Text(person.name) // person Name
                 .font(.system(size: 35, weight: .black, design: .rounded))
             createPersonBio()
-//            Text(person.biography) // person bio
-//                .font(.body)
         }.padding(.horizontal).padding(.bottom)
     }
-    
-//    private func createPersonName() -> some View {
-//        if let currentDeviceLanguage = Bundle.main.preferredLocalizations.first {
-//            if currentDeviceLanguage == "zh-Hans" {
-//                if self.person.nameCn != "" {
-//                    return Text(self.person.nameCn)
-//                    .font(.system(size: 35, weight: .black, design: .rounded))
-//                }
-//            }
-//        }
-//        return Text(self.person.name)
-//            .font(.system(size: 35, weight: .black, design: .rounded))
-//    }
     
     private func createPersonBio() -> some View {
         if let currentDeviceLanguage = Bundle.main.preferredLocalizations.first {
             if currentDeviceLanguage == "zh-Hans" {
                 if self.person.biographyCn != "" {
                     return Text(self.person.biographyCn)
-                    .font(.body)
+                        .font(.body)
                 }
             }
         }
@@ -93,8 +77,8 @@ private struct PosterImage: View {
     
     var body: some View {
         KFImage(source: .network(person.profileUrl))
-        .resizable()
-        .aspectRatio(contentMode: .fit)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
     }
 }
 
@@ -102,7 +86,7 @@ private struct AttendedMovieList: View {
     var movies: [PersonMovieViewModel]
     @State private var showSheet = false
     @State private var selectedID = -1
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("Known For")
@@ -118,9 +102,9 @@ private struct AttendedMovieList: View {
                                 .onTapGesture {
                                     self.selectedID = movie.id
                                     self.showSheet.toggle()
-                                }
+                            }
                             Text("\(movie.title)")
-                            .lineLimit(2)
+                                .lineLimit(2)
                                 .foregroundColor(.gray)
                                 .frame(height: 50, alignment: .top)
                         }.frame(width: 100)
@@ -147,9 +131,9 @@ private struct PersonImageList: View {
                 HStack(alignment: .top, spacing: 6) {
                     ForEach(0..<images.count, id: \.self) { i in
                         KFImage(source: .network(self.images[i].fileURL))
-                        .resizable()
-                        .frame(width: 100, height: 150)
-                        .aspectRatio(2/3, contentMode: .fit)
+                            .resizable()
+                            .frame(width: 100, height: 150)
+                            .aspectRatio(2/3, contentMode: .fit)
                             .onTapGesture {
                                 self.selectedIdx = i
                                 self.showSheet.toggle()
@@ -157,7 +141,11 @@ private struct PersonImageList: View {
                     }
                 }
                 .sheet(isPresented: $showSheet) {
-                    PageView(self.images.map { PresentedImageView(image: $0) }, selectedIdx: self.selectedIdx)
+                    if self.images.count == 1 {
+                        PresentedImageView(image: self.images[0])
+                    } else {
+                        PageView(self.images.map { PresentedImageView(image: $0) }, selectedIdx: self.selectedIdx)
+                    }
                 }
             }.frame(height: 150)
         }
@@ -167,28 +155,49 @@ private struct PersonImageList: View {
 
 private struct PresentedImageView: View {
     var image: PersonImageViewModel
-    @State private var scale: CGFloat = 1.0
+    
+    @State private var contentMode: ContentMode = .fit
+    @State private var scaleAmount: CGFloat = 1.0
+    @State private var dragAmount: CGSize = .zero
+    @State private var offSetAmount: CGSize = .zero
     
     var body: some View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
             KFImage(source: .network(image.fileURL))
                 .resizable()
-                .aspectRatio(contentMode: .fit)
-                .scaleEffect(scale)
-                .onTapGesture(count: 2) {
-                    if self.scale == 1.0 {
-                        self.scale += 0.5
-                    } else {
-                        self.scale = 1.0
+                .aspectRatio(contentMode: contentMode)
+                .offset(dragAmount)
+                .scaleEffect(scaleAmount)
+                .onTapGesture(count: 2) { // double clicking zoom in/out
+                    withAnimation(.spring()) {
+                        (self.contentMode == .fit) ?
+                            (self.contentMode = .fill) :
+                            (self.contentMode = .fit)
                     }
+            }
+            // For double fingers zoom in/out
+            .gesture(
+                MagnificationGesture(minimumScaleDelta: 0.05)
+                    .onChanged { self.scaleAmount = $0 }
+                    .onEnded { _ in
+                        withAnimation(.spring()) {
+                            self.scaleAmount = 1.0
+                            self.dragAmount = .zero
+                            self.offSetAmount = .zero
+                        }
                 }
-                // For double fingers zoom in/out
-            .gesture(MagnificationGesture(minimumScaleDelta: 0.1).onChanged { value in
-                self.scale = value.magnitude
-            }.onEnded { val in
-                self.scale = val.magnitude
-            })
+            .simultaneously(with:
+                DragGesture()
+                    .onChanged { self.dragAmount = $0.translation }
+                    .onEnded { _ in withAnimation(.spring()) {
+                        self.scaleAmount = 1.0
+                        self.dragAmount = .zero
+                        self.offSetAmount = .zero
+                        }
+                    }
+                )
+            )
         }
     }
 }
