@@ -54,7 +54,7 @@ struct MovieViewModel: Identifiable, DummyBundle, Hashable {
     private let backdropSize = "w1280"
     private let posterSize = "w500"
     
-    static  var `default` : MovieViewModel {
+    static var `default` : MovieViewModel {
         get{
             MovieViewModel(movie: Movie(id: 0, title: "", releaseDate: "", overview: "", popularity: 0, genres: [], voteAverage: 0, originalLanguage: "", posterPath: "", backdropPath: "", voteCount: 0, status: "", runtime: 0, revenue: 0, budget: 0, productionCompanies: [], translations: Translation.default, genreIds: []) )
         }

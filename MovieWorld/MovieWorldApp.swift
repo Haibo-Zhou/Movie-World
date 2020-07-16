@@ -59,9 +59,6 @@ struct MovieWorldAppView: View {
                     Text("About")
             }
         }.accentColor(.red)
-        
-            
-            
     }
     
     fileprivate func createCollectionView() -> some View {

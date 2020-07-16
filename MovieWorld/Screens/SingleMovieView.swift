@@ -232,8 +232,10 @@ struct RecMovieList: View {
                                 .frame(width: 100, height: 150)
                                 .aspectRatio(2/3, contentMode: .fill)
                                 .onTapGesture {
-                                    self.model.getMovieDetail(id: movie.id)
-                                    self.model.getMovieDetailBundle(id: movie.id)
+                                    withAnimation(.default) {
+                                        self.model.getMovieDetail(id: movie.id)
+                                        self.model.getMovieDetailBundle(id: movie.id)
+                                    }
                                 }
                             Text("\(movie.title)")
                             .lineLimit(2)
